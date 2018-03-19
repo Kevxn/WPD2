@@ -1,0 +1,31 @@
+
+html{
+    background:#e6e9e9;
+    height:100%;
+}
+
+
+h1{
+    font-family: 'Pacifico';font-size: 36px;
+    margin-left: 280px;
+    margin-top:40px;
+
+}
+
+
+h2{
+    text-align: center;
+}
+
+body {
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    color: #545454;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
+}
