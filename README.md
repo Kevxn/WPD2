@@ -27,5 +27,7 @@ We are developing the servlet to learn more about programming in Java and also t
 *Drew Mclachlan / (DMCLAC201@caledonian.ac.uk)
 
 *Kevin Gray / (KGRAY208@caledonian.ac.uk)
+
+*Sean Notman / (SNOTMA200@caledonian.ac.uk)
 ### License ###
 License things idk
