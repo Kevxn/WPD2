@@ -71,17 +71,5 @@ public class TestServlet extends servlet.BaseServlet {
         showView(response, MESSAGE_BOARD_TEMPLATE, getObject());
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        String plannerName = request.getParameter("Ptitle");
-        Planner p = new Planner(plannerName);
-        String milestoneTitle = request.getParameter("Mtitle");
-        String milestoneDesc = request.getParameter("MDesc");
-        Milestone m = new Milestone(milestoneTitle, milestoneDesc);
-        p.addMilestone(m);
-        response.sendRedirect("/mb.mustache.html");
-
-    }
 
 }
