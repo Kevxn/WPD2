@@ -1,5 +1,4 @@
 
-package wpd2.lab1;
 
 import servlet.TestServlet;
 import org.eclipse.jetty.server.Server;
@@ -27,6 +26,7 @@ public class Runner {
 
         TestServlet demoServlet = new TestServlet();
         handler.addServlet(new ServletHolder(demoServlet), "/serv/*");
+        handler.addServlet(new ServletHolder(demoServlet), "/add");
 
         DefaultServlet ds = new DefaultServlet();
         handler.addServlet(new ServletHolder(ds), "/");

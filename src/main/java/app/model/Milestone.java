@@ -10,6 +10,10 @@ public class Milestone {
         this.description = description;
     }
 
+    public Milestone(){
+
+    }
+
     public String getTitle() {
         return title;
     }

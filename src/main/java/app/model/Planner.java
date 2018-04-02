@@ -3,6 +3,7 @@ package app.model;
 import java.util.ArrayList;
 
 
+
 public class Planner {
     private final int id;
     private String plannerName;
@@ -35,6 +36,8 @@ public class Planner {
         return this.id;
 
     }
+
+
 
 
     public String getPlannerName() {
