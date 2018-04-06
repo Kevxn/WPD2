@@ -33,15 +33,15 @@ public class Repository {
     //   }
 
 
-    public Planner getPlannerById(int id) {
-        for (Planner p : planner) {
-            if (id == p.getId()) {
-                return p;
-            }
-        }
-        return null;
+   // public Planner getPlannerById(int id) {
+   //     for (Planner p : planner) {
+    //        if (id == p.getId()) {
+   //             return p;
+    //        }
+    //    }
+   //     return null;
 
-    }
+   // }
 
     public String toString() {
         return "\nPlanner: " + this.planner;

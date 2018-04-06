@@ -61,7 +61,7 @@ public class H2Planner implements AutoCloseable {
         }
     }
 
-    public List<Planner> findPersons() {
+    public List<Planner> findPlanner() {
         final String LIST_PERSONS_QUERY = "SELECT plannerName  FROM planner";
         List<Planner> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS_QUERY)) {

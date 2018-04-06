@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Planner {
-    private final int id;
+   // private final int id;
     private String plannerName;
     private ArrayList<Milestone> milestone;
 
@@ -13,29 +13,29 @@ public class Planner {
     private static int lastIdAllo = 0;
 
     public Planner(){
-        this.id = ++lastIdAllo;
+     //   this.id = ++lastIdAllo;
         this.plannerName = "";
         this.milestone = new ArrayList<>();
     }
 
     public Planner(String plannerName){
-        this.id = ++lastIdAllo;
+    //    this.id = ++lastIdAllo;
         this.plannerName = plannerName;
         this.milestone = new ArrayList<>();
     }
 
     public Planner(int plannerId, String plannerName, ArrayList<Milestone> milestone) {
-        this.id = plannerId;
+    //    this.id = plannerId;
         this.plannerName = plannerName;
         this.milestone = milestone;
     }
 
-    public int getId() {
+    //public int getId() {
+//
+    ///    System.out.print(this.id);
+    //    return this.id;
 
-        System.out.print(this.id);
-        return this.id;
-
-    }
+  //  }
 
 
 
@@ -69,7 +69,7 @@ public class Planner {
 
 
     public String toString() {
-        return "\nPlanner Id: " + id + " - Planner Heading: " + plannerName +
+        return"- Planner Heading: " + plannerName +
                 "\nMilestones: " + milestone.toString();
     }
 

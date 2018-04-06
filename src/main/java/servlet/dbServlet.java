@@ -15,36 +15,32 @@ import java.util.List;
 
 public class dbServlet extends HttpServlet {
     private static final String DB_TEMPLATE = "src/main/resources/templates/index.mustache";
-        private final H2Planner h2Planner;
-        private final MustacheRenderer mustache;
-        public dbServlet(H2Planner h2Planner) {
-            mustache = new MustacheRenderer();
-            this.h2Planner = h2Planner;
-        }
+    private final H2Planner h2Planner;
+    private final MustacheRenderer mustache;
 
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            List<Planner> planner = h2Planner.findPersons();
-            String html = mustache.render(DB_TEMPLATE, new Result(planner.size()));
-            response.setContentType("text/html");
-            response.setStatus(200);
-            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
-        }
-
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String plannerName = request.getParameter("plannerName");
-            Planner planner = new Planner(plannerName);
-            h2Planner.addPlanner(planner);
-            response.sendRedirect("/index.html");
-        }
-
-        @Data
-        class Result {
-            private int count;
-            Result(int count) { this.count = count; }
-        }
+    public dbServlet(H2Planner h2Planner) {
+        mustache = new MustacheRenderer();
+        this.h2Planner = h2Planner;
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Planner> planner = h2Planner.findPlanner();
+        String html = mustache.render(DB_TEMPLATE, planner);
+        response.setContentType("text/html");
+        response.setStatus(200);
+        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String plannerName = request.getParameter("plannerName");
+        Planner planner = new Planner(plannerName);
+        h2Planner.addPlanner(planner);
+        response.sendRedirect("/index.html");
+    }
+}
+
 
 
 

@@ -17,7 +17,7 @@ import java.util.*;
 public class TestServlet extends servlet.BaseServlet {
     @SuppressWarnings("unused")
 
-    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/webapp/mb.mustache.html";
+    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/mb.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
 
