@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS planner (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  plannerName VARCHAR(255),
+);
