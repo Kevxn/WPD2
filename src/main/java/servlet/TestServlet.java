@@ -4,11 +4,13 @@ package servlet;
 import app.model.*;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.MustacheFactory;
+import db.H2Planner;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.*;
 //import java.nio.charset.Charset;
 
@@ -20,27 +22,19 @@ public class TestServlet extends servlet.BaseServlet {
     private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/mb.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
+    private final H2Planner h2Planner;
 
-    public TestServlet() {
 
+
+
+    public TestServlet(H2Planner h2Planner) {
+        mustache = new MustacheRenderer();
+        this.h2Planner = h2Planner;
     }
 
     MustacheRenderer mustache = new MustacheRenderer();
 
-    private Object getObject(){
 
-        //Create new Planner with the 'Planner One'
-        Planner p = new Planner("Planner one");
-        //Create two Milestone objects 'milestone one' & Milestone two
-        Milestone m1 = new Milestone("Milestone one Title", "Milestone one Description");
-        Milestone m2 = new Milestone();
-        m2.setTitle("Milestone two Title");
-        m2.setDescription("Milestone two Description");
-        //Add to Planner Object (Currently this only works on the first planner)
-        p.addMilestone(m1);
-        p.addMilestone(m2);
-        return p;
-    }
 
 
     protected void showView(HttpServletResponse response, String templateName, Object model)
@@ -68,7 +62,14 @@ public class TestServlet extends servlet.BaseServlet {
 
         //response.sendRedirect("/serv.html");
 
-        showView(response, MESSAGE_BOARD_TEMPLATE, getObject());
+       // showView(response, MESSAGE_BOARD_TEMPLATE, h2Planner);
+
+        List<Planner> planner = h2Planner.findPlanner();
+        String h = mustache.render(MESSAGE_BOARD_TEMPLATE, planner);
+        response.setContentType("text/html");
+        response.setStatus(200);
+        response.getOutputStream().write(h.getBytes(Charset.forName("utf-8")));
+
     }
 
 

@@ -11,7 +11,7 @@ import com.github.mustachejava.MustacheFactory;
 public class MustacheRenderer {
 
 
-    private static final String TEMPLATE_ROOT = "PlannerM.mustache";
+    private static final String TEMPLATE_ROOT = "index.mustache";
 
     private MustacheFactory mustacheFactory;
 

@@ -69,7 +69,7 @@ public class Planner {
 
 
     public String toString() {
-        return"- Planner Heading: " + plannerName +
+        return plannerName + "\n" +
                 "\nMilestones: " + milestone.toString();
     }
 

@@ -26,6 +26,8 @@ public class dbServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Planner> planner = h2Planner.findPlanner();
+        System.out.println("test");
+        System.out.println(planner.toString());
         String html = mustache.render(DB_TEMPLATE, planner);
         response.setContentType("text/html");
         response.setStatus(200);
@@ -37,6 +39,7 @@ public class dbServlet extends HttpServlet {
         String plannerName = request.getParameter("plannerName");
         Planner planner = new Planner(plannerName);
         h2Planner.addPlanner(planner);
+        //System.out.print(planner.toString());
         response.sendRedirect("/index.html");
     }
 }

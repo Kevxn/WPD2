@@ -27,8 +27,8 @@ public class Runner {
         handler.setContextPath("/");
         handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/webapp");
 
-        TestServlet demoServlet = new TestServlet();
-        handler.addServlet(new ServletHolder(demoServlet), "/serv/*");
+
+        handler.addServlet(new ServletHolder(new TestServlet(h2Planner)), "/serv/*");
 
 
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/index.html");
