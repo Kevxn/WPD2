@@ -5,14 +5,26 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Planner</h1>
+<h1>Planner name</h1>
 
 
 
-<h2>{{.}}</h2>
+{{#plannerList}}
+    {{plannerName}}
 
+{{/plannerList}}
+<br>
+<h1>empty map bellow</h1>
+<br>
+{{.}}
+<br>
+<h1>milestones</h1>
 
-<h1>Add a planner</h1>
-<a href = "/index.html"> Link to Servlet</a>
+<br>
+{{#milestone}}
+    {{title}}
+    {{description}}
+{{/milestone}}
+<a href = "/index.html"> Link to add a Planner Object</a>
 </body>
 </html>

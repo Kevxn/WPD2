@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class dbServlet extends HttpServlet {
@@ -25,14 +27,19 @@ public class dbServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Planner> planner = h2Planner.findPlanner();
-        System.out.println("test");
-        System.out.println(planner.toString());
-        String html = mustache.render(DB_TEMPLATE, planner);
+        List<Planner> plannerList = h2Planner.findPlanner();
+
+        System.out.println(plannerList.toString());
+
+        Map <String, Object> data = new HashMap<>();
+        data.put("plannerList", plannerList);
+        String html = mustache.render(DB_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);
         response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
     }
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +47,7 @@ public class dbServlet extends HttpServlet {
         Planner planner = new Planner(plannerName);
         h2Planner.addPlanner(planner);
         //System.out.print(planner.toString());
-        response.sendRedirect("/index.html");
+        response.sendRedirect("/serv");
     }
 }
 

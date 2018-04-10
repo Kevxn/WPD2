@@ -64,12 +64,16 @@ public class TestServlet extends servlet.BaseServlet {
 
        // showView(response, MESSAGE_BOARD_TEMPLATE, h2Planner);
 
-        List<Planner> planner = h2Planner.findPlanner();
-        String h = mustache.render(MESSAGE_BOARD_TEMPLATE, planner);
+        List<Planner> plannerList = h2Planner.findPlanner();
+
+        System.out.println(plannerList.toString());
+
+        Map <String, Object> data = new HashMap<>();
+        data.put("plannerList", plannerList);
+        String html = mustache.render(MESSAGE_BOARD_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);
-        response.getOutputStream().write(h.getBytes(Charset.forName("utf-8")));
-
+        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
     }
 
 
