@@ -2,8 +2,6 @@ package servlet;
 
 
 import app.model.*;
-import com.github.mustachejava.DefaultMustacheFactory;
-import com.github.mustachejava.MustacheFactory;
 import db.H2Planner;
 
 import javax.servlet.ServletException;
@@ -13,7 +11,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.*;
 //import java.nio.charset.Charset;
-
 
 
 public class TestServlet extends servlet.BaseServlet {
@@ -27,9 +24,11 @@ public class TestServlet extends servlet.BaseServlet {
 
 
 
+
     public TestServlet(H2Planner h2Planner) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
+
     }
 
     MustacheRenderer mustache = new MustacheRenderer();
@@ -65,9 +64,8 @@ public class TestServlet extends servlet.BaseServlet {
        // showView(response, MESSAGE_BOARD_TEMPLATE, h2Planner);
 
         List<Planner> plannerList = h2Planner.findPlanner();
-
-        System.out.println(plannerList.toString());
-
+        List<Milestone> milestoneList = h2Planner.findMilestone();
+        plannerList.get(0).addMilestones(milestoneList);
         Map <String, Object> data = new HashMap<>();
         data.put("plannerList", plannerList);
         String html = mustache.render(MESSAGE_BOARD_TEMPLATE, data);
