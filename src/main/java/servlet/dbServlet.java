@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//for new planner (index page)
 
 public class dbServlet extends HttpServlet {
     private static final String DB_TEMPLATE = "src/main/resources/templates/index.mustache";
