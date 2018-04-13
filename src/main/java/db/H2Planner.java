@@ -1,5 +1,6 @@
 package db;
 
+import app.model.Milestone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,6 +75,34 @@ public class H2Planner implements AutoCloseable {
         }
         return out;
     }
+
+
+    public void addMilestone(Milestone milestone) {
+        final String ADD_PERSON_QUERY = "INSERT INTO milestone (title, description) VALUES (?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(ADD_PERSON_QUERY)) {
+            ps.setString(1, milestone.getTitle ());
+            ps.setString(2, milestone.getDescription());
+
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Milestone> findMilestone() {
+        final String LIST_PERSONS_QUERY = "SELECT title, description FROM milestone";
+        List<Milestone> out = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS_QUERY)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                out.add(new Milestone(rs.getString(1), rs.getString(2)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return out;
+    }
+
 
     private void loadResource(String name) {
         try {

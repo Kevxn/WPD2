@@ -2,8 +2,6 @@ package servlet;
 
 
 import app.model.*;
-import com.github.mustachejava.DefaultMustacheFactory;
-import com.github.mustachejava.MustacheFactory;
 import db.H2Planner;
 
 import javax.servlet.ServletException;
@@ -13,7 +11,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.*;
 //import java.nio.charset.Charset;
-
 
 
 public class TestServlet extends servlet.BaseServlet {
@@ -27,9 +24,11 @@ public class TestServlet extends servlet.BaseServlet {
 
 
 
+
     public TestServlet(H2Planner h2Planner) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
+
     }
 
     MustacheRenderer mustache = new MustacheRenderer();
@@ -55,21 +54,15 @@ public class TestServlet extends servlet.BaseServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-       //  response.setContentType("text/html");
-       //  response.setStatus(HttpServletResponse.SC_OK);
-       //  response.getWriter().println("<h1>Hello</h1><p>Dynamic Webpage</p>");
-
-
-        //response.sendRedirect("/serv.html");
-
-       // showView(response, MESSAGE_BOARD_TEMPLATE, h2Planner);
-
-        List<Planner> planner = h2Planner.findPlanner();
-        String h = mustache.render(MESSAGE_BOARD_TEMPLATE, planner);
+        List<Planner> plannerList = h2Planner.findPlanner();
+        List<Milestone> milestoneList = h2Planner.findMilestone();
+        plannerList.get(0).addMilestones(milestoneList);
+        Map <String, Object> data = new HashMap<>();
+        data.put("plannerList", plannerList);
+        String html = mustache.render(MESSAGE_BOARD_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);
-        response.getOutputStream().write(h.getBytes(Charset.forName("utf-8")));
-
+        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
     }
 
 

@@ -1,6 +1,7 @@
 package app.model;
 
 import java.util.ArrayList;
+import java.util.*;
 
 
 
@@ -50,6 +51,13 @@ public class Planner {
 
     public void addMilestone(Milestone newMilestone){
         this.milestone.add(newMilestone);
+
+    }
+
+    public void addMilestones(List<Milestone> m){
+        for (Milestone milestone : m){
+           this.milestone.add(milestone);
+        }
 
     }
 

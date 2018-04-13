@@ -1,8 +1,7 @@
 package servlet;
 
-import lombok.Data;
+import app.model.Planner;
 import db.H2Planner;
-import app.model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,27 +12,27 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import app.model.*;
+import db.*;
 
-//for new planner (index page)
+public class MilestoneServlet extends HttpServlet{
 
-public class dbServlet extends HttpServlet {
-    private static final String DB_TEMPLATE = "src/main/resources/templates/index.mustache";
+    private static final String DB_TEMPLATE = "src/main/resources/templates/milestone.mustache";
     private final H2Planner h2Planner;
     private final MustacheRenderer mustache;
 
-    public dbServlet(H2Planner h2Planner) {
+    public MilestoneServlet(H2Planner h2Planner) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Planner> plannerList = h2Planner.findPlanner();
+        List<Milestone> milestoneList = h2Planner.findMilestone();
+        System.out.println(milestoneList.toString());
 
-        System.out.println(plannerList.toString());
-
-        Map <String, Object> data = new HashMap<>();
-        data.put("plannerList", plannerList);
+        Map<String, Object> data = new HashMap<>();
+        data.put("milestoneList", milestoneList);
         String html = mustache.render(DB_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);
@@ -44,17 +43,12 @@ public class dbServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String plannerName = request.getParameter("plannerName");
-        Planner planner = new Planner(plannerName);
-        h2Planner.addPlanner(planner);
+        String title = request.getParameter("txtTitle");
+        String description = request.getParameter("txtDescription");
+        System.out.println(title + " " + description);
+        Milestone milestone = new Milestone(title, description);
+        h2Planner.addMilestone(milestone);
         //System.out.print(planner.toString());
         response.sendRedirect("/serv");
     }
 }
-
-
-
-
-
-
-
