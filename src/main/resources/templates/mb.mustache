@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Shop Demo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" typr="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../webapp/styleSheet1.css">
+<style>
+    .card-body {
+    margin-bottom: 1em;
+}
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -55,6 +60,7 @@
     {{/milestone}}
 </div>
 </div>
+
 {{/plannerList}}
 </div>
 
@@ -67,8 +73,6 @@
 <!--{{.}}-->
 <!--<br>-->
 <!--<h1>milestones</h1>-->
-
-<br>
 
     <button type="button" class="btn btn-Link"><a href = "/planner">Add a Planner Object</a></button>
     <button type="button" class="btn btn-Link"><a href = "/milestone">Add a Milestone Object</a></button>
