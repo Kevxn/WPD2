@@ -20,6 +20,7 @@ public class H2Planner implements AutoCloseable {
     public static final String FILE = "jdbc:h2:~/shop";
 
     private Connection connection;
+    public int id;
 
     static Connection getConnection(String db) throws SQLException, ClassNotFoundException {
         Class.forName("org.h2.Driver");  // ensure the driver class is loaded when the DriverManager looks for an installed class. Idiom.
@@ -115,7 +116,12 @@ public class H2Planner implements AutoCloseable {
     }
 
 
+    public int getId() {
+        return id;
+    }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }
 

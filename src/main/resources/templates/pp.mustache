@@ -38,15 +38,23 @@
         <h1 class="display-4">Planners</h1>
     </div>
 </div>
-<div class="container">
-    <h1>Create a planner</h1>
 
-    <form method="POST" action="/add">
-        <div class="form-group">
-        <label for="plannerName">Planner Name:</label>
-        <input type="text" class="form-control" id="plannerName" name="plannerName" placeholder="Enter Planner Name">
-        </div>
-        <button type="submit" class="btn btn-primary" value="add">Create</button>
+
+<div class="container">
+
+
+
+    <h1>Choose a planner to work on</h1>
+    <ol>
+    {{#plannerList}}
+       <li> {{plannerName}}</li>
+    {{/plannerList}}
+    </ol>
+    <form method="POST" action="/add3">
+        <label for="id">Enter ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
+        <br>
+        <button type="submit" class="btn btn-primary" value="add3">Create</button>
     </form>
 
 

@@ -13,7 +13,6 @@ public class Runner {
 
 
     private static final int PORT = 9000;
-
    private final H2Planner h2Planner;
 
 
@@ -31,8 +30,10 @@ public class Runner {
         handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/webapp");
 
 
-        handler.addServlet(new ServletHolder(new TestServlet(h2Planner)), "/serv/*");
+        handler.addServlet(new ServletHolder(new ppServlet(h2Planner)), "/pickPlanner/*");
+        handler.addServlet(new ServletHolder(new ppServlet(h2Planner)), "/add3"); // we post to here
 
+        handler.addServlet(new ServletHolder(new TestServlet(h2Planner)), "/serv/*");
 
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/planner/*");
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/add"); // we post to here
