@@ -79,10 +79,11 @@ public class H2Planner implements AutoCloseable {
 
 
     public void addMilestone(Milestone milestone) {
-        final String ADD_PERSON_QUERY = "INSERT INTO milestone (title, description) VALUES (?, ?)";
+        final String ADD_PERSON_QUERY = "INSERT INTO milestone (title, description, plannerId) VALUES (?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_PERSON_QUERY)) {
             ps.setString(1, milestone.getTitle ());
             ps.setString(2, milestone.getDescription());
+            ps.setInt(3, milestone.getPlannerId());
 
             ps.execute();
         } catch (SQLException e) {
@@ -91,12 +92,12 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Milestone> findMilestone() {
-        final String LIST_PERSONS_QUERY = "SELECT title, description FROM milestone";
+        final String LIST_PERSONS_QUERY = "SELECT title, description, plannerId FROM milestone";
         List<Milestone> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Milestone(rs.getString(1), rs.getString(2)));
+                out.add(new Milestone(rs.getString(1), rs.getString(2), rs.getInt(3)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -48,7 +48,7 @@ public class dbServlet extends HttpServlet {
         Planner planner = new Planner(plannerName);
         h2Planner.addPlanner(planner);
         //System.out.print(planner.toString());
-        response.sendRedirect("/serv");
+        response.sendRedirect("/pickPlanner");
     }
 }
 

@@ -3,12 +3,16 @@ package app.model;
 public class Milestone {
     private String title;
     private String description;
+    private int plannerId;
 
 
-    public Milestone(String title, String description) {
+    public Milestone(String title, String description, int plannerId) {
         this.title = title;
         this.description = description;
+        this.plannerId = plannerId;
     }
+
+    //add new constructor here
 
     public Milestone(){
 
@@ -30,6 +34,13 @@ public class Milestone {
         this.description = description;
     }
 
+    public int getPlannerId() {
+        return plannerId;
+    }
+
+    public void setPlannerId(int plannerId) {
+        this.plannerId = plannerId;
+    }
 
     public String toString() {
         return "\nMilestone: " + title +
