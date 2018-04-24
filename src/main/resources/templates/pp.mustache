@@ -39,40 +39,29 @@
     </div>
 </div>
 
+
 <div class="container">
 
-<div class="col-4">
-{{#plannerList}}
-<div class="card card-body shadow">
-    <h3>{{plannerName}}</h3>
-    {{#milestone}}
-<div class="border border-primary">
-        <h4>{{title}}</h4>
-        <p>{{description}}</p>
-</div>
-    {{/milestone}}
-</div>
-<br>
-{{/plannerList}}
-</div>
-<br>
 
 
-<!--<br>-->
-<!--<h1>empty map bellow</h1>-->
-<!--<br>-->
-<!--{{.}}-->
-<!--<br>-->
-<!--<h1>milestones</h1>-->
+    <h1>Choose a planner to work on</h1>
+    <ol>
+    {{#plannerList}}
+       <li> {{plannerName}}</li>
+    {{/plannerList}}
+    </ol>
+    <form method="POST" action="/add3">
+        <label for="id">Enter ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
+        <br>
+        <button type="submit" class="btn btn-primary" value="add3">Create</button>
+    </form>
 
-<br>
 
-    <button type="button" class="btn btn-primary"><a href = "/planner">Link to add a Planner Object</a></button>
-    <button type="button" class="btn btn-primary"><a href = "/milestone">Link to add a Milestone Object</a></button>
+
 
 
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
