@@ -30,7 +30,10 @@ public class dbServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Planner> plannerList = h2Planner.findPlanner();
 
-        System.out.println(plannerList.toString());
+        //printing out the contents of the planner for testing
+        for(Planner p : plannerList){
+            System.out.println(p.toString());
+        }
 
         Map <String, Object> data = new HashMap<>();
         data.put("plannerList", plannerList);
@@ -47,7 +50,6 @@ public class dbServlet extends HttpServlet {
         String plannerName = request.getParameter("plannerName");
         Planner planner = new Planner(plannerName);
         h2Planner.addPlanner(planner);
-        //System.out.print(planner.toString());
         response.sendRedirect("/serv");
     }
 }
