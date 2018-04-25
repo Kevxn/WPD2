@@ -108,7 +108,7 @@ public class H2Planner implements AutoCloseable {
         return out;
     }
 
-    public Milestone editMilestone() {
+    public List<Milestone> editMilestone(int id, String title, String description) {
         final String EDIT_MILESTONE_QUERY = "SELECT Id,  title, description, plannerId FROM milestone";
         List<Milestone> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(EDIT_MILESTONE_QUERY)) {
@@ -123,13 +123,18 @@ public class H2Planner implements AutoCloseable {
 
         }
         for (Milestone m : out) {
-            if (m.getId() == 1) { //change to variable
+            if (m.getId() == id) { //change to variable
                 System.out.println("1");
-                return m;
+                m.setTitle(title);
+                m.setDescription(description);
+                m.toString();
             }
         }
         System.out.println("0");
-        return null;
+        for (Milestone m : out){
+            System.out.println(m.toString());
+        }
+        return out;
     }
 
 
