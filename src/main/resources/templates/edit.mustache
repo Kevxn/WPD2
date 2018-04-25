@@ -44,10 +44,7 @@
 
 
 
-    {{#milestoneList}}
-    {{title}}
-    {{description}}
-    {{/milestoneList}}
+    {{#milestoneList}}<input type="radio" name="msgId" value="{{id}}"> {{title}} {{description}} {{/milestoneList}}
 
     <form method="POST" action="/add4">
         <label for="id">Enter ID</label>
@@ -62,9 +59,13 @@
         <input type="text" id="edescription" name="etxtDescription" placeholder="eMilestone Description">
             </div>
         </div>
-        <input type="submit" value="add4">
 
+        <input type="hidden" name="method" value="delete">
+        <input type="submit" value="Delete" style="margin-top:1em;"/>
     </form>
+
+
+
 
 
 

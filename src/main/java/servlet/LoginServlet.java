@@ -30,6 +30,10 @@ public class LoginServlet extends BaseServlet {
         session.setAttribute("uname",n);
         output += "<a href='/servlet2'>Visit again!</a>"    ;
         issue(HTML_UTF_8, HttpServletResponse.SC_OK, output.getBytes(CHARSET_UTF8), response);
+
+
+
+
     }
 
 

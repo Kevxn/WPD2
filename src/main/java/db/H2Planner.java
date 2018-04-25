@@ -95,6 +95,7 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Milestone> findMilestone() {
+        int varID = 0;
         final String LIST_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone";
         List<Milestone> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONE_QUERY)) {
@@ -108,39 +109,66 @@ public class H2Planner implements AutoCloseable {
         return out;
     }
 
-    public List<Milestone> editMilestone(int id, String title, String description) {
-        final String EDIT_MILESTONE_QUERY = "SELECT Id,  title, description, plannerId FROM milestone";
-        List<Milestone> out = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(EDIT_MILESTONE_QUERY)) {
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                out.add(new Milestone(rs.getInt(1), rs.getString(2), rs.getString(4), rs.getInt(4)));
-            }
 
 
+  public Milestone getMilestone(int vid) {
+      final String UPDATE_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone WHERE id = ?";
+      Milestone m = new Milestone();
+      try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
+          ps.setInt(1, vid);
+          ResultSet rs = ps.executeQuery();
+          while (rs.next()) {
+              m = rs2milestone(rs);
+            //  System.out.println(m.toString());
+             // m.setTitle(title);
+            //  m.setDescription(description);
+            //  System.out.println(m.toString());
+
+          }
+        //  insertMilestone(m);
+          return m;
+         //make void
+      } catch (SQLException e) {
+          throw new RuntimeException(e);
+      }
+
+  }
+       ////   public void insertMilestone(Milestone milestone){
+        //      String query = "INSERT into milestone (title, description) VALUES(?,?)";
+        //      try (PreparedStatement ps = getConnection().prepareStatement(query)) {
+       //      //     ps.setString(1, title);
+              //    ps.setString(2, description);
+              //    int count = ps.executeUpdate();
+
+
+
+
+
+         // ps.setInt(1, vid);
+         //  ResultSet rs =  ps.executeQuery();
+         //  System.out.println(rs)
+        //   m = rs2milestone(rs);
+        //   System.out.println(m.toString());
+    //  } catch (SQLException e){
+     //     throw new RuntimeException(e);
+    //  }
+    //    return m;
+
+
+
+
+
+
+    public void delete(int id) {
+        System.out.println("delete");
+        String ps = "DELETE FROM milestone WHERE id = ?";
+        try (PreparedStatement p = connection.prepareStatement(ps)) {
+            p.setLong(1, id);
+            p.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-
         }
-        for (Milestone m : out) {
-            if (m.getId() == id) { //change to variable
-                System.out.println("1");
-                m.setTitle(title);
-                m.setDescription(description);
-                m.toString();
-            }
-        }
-        System.out.println("0");
-        for (Milestone m : out){
-            System.out.println(m.toString());
-        }
-        return out;
     }
-
-
-
-
-
 
 
 
@@ -162,5 +190,12 @@ public class H2Planner implements AutoCloseable {
     public void setId(int id) {
         this.id = id;
     }
+
+    private static Milestone rs2milestone(ResultSet rs) throws SQLException {
+        return new Milestone(rs.getInt(1), rs.getString(2),
+                rs.getString(3), rs.getInt(4));
+    }
+
+
 }
 
