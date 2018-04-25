@@ -16,7 +16,7 @@ import java.util.*;
 public class TestServlet extends servlet.BaseServlet {
     @SuppressWarnings("unused")
 
-    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/mb.mustache";
+    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/test.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
     private final H2Planner h2Planner;
@@ -57,10 +57,19 @@ public class TestServlet extends servlet.BaseServlet {
         List<Planner> plannerList = h2Planner.findPlanner();
         List<Milestone> milestoneList = h2Planner.findMilestone();
         int pid = h2Planner.getId();
-        plannerList.get(pid).addMilestones(milestoneList);
-        Map <String, Object> data = new HashMap<>();
-        data.put("plannerList", plannerList);
-        String html = mustache.render(MESSAGE_BOARD_TEMPLATE, data);
+        List<Milestone> temp = new ArrayList<>();
+
+        for(Milestone m: milestoneList){
+            if(m.getPlannerId() == pid){
+                temp.add(m);
+            }
+
+        }
+
+        plannerList.get(pid).addMilestones(temp);
+       //Map <String, Object> data = new HashMap<>();
+       // data.put("plannerList", plannerList);
+        String html = mustache.render(MESSAGE_BOARD_TEMPLATE, plannerList.get(pid));
         response.setContentType("text/html");
         response.setStatus(200);
         response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));

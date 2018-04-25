@@ -45,8 +45,9 @@ public class MilestoneServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("txtTitle");
         String description = request.getParameter("txtDescription");
-        System.out.println(title + " " + description);
-        Milestone milestone = new Milestone(title, description);
+        int plannerId = h2Planner.getId();
+        System.out.println(title + " " + description + plannerId);
+        Milestone milestone = new Milestone(title, description, plannerId);
         h2Planner.addMilestone(milestone);
         //System.out.print(planner.toString());
         response.sendRedirect("/serv");
