@@ -39,6 +39,8 @@ public class Runner {
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/add"); // we post to here
 
 
+        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/edit/*");
+        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/add4"); // we post to here
 
         handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/milestone/*");
        handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/add2"); // we post to here

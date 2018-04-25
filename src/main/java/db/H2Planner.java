@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 
 import app.model.Planner;
 
+import java.awt.*;
 import java.io.IOException;
+import java.io.SyncFailedException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +55,8 @@ public class H2Planner implements AutoCloseable {
     }
 
     public void addPlanner(Planner planner) {
-        final String ADD_PERSON_QUERY = "INSERT INTO planner (plannerName) VALUES (?)";
-        try (PreparedStatement ps = connection.prepareStatement(ADD_PERSON_QUERY)) {
+        final String ADD_PLANNER_QUERY = "INSERT INTO planner (plannerName) VALUES (?)";
+        try (PreparedStatement ps = connection.prepareStatement(ADD_PLANNER_QUERY)) {
             ps.setString(1, planner.getPlannerName ());
 
             ps.execute();
@@ -64,9 +66,9 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Planner> findPlanner() {
-        final String LIST_PERSONS_QUERY = "SELECT plannerName FROM planner";
+        final String LIST_PLANNER_QUERY = "SELECT plannerName FROM planner";
         List<Planner> out = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS_QUERY)) {
+        try (PreparedStatement ps = connection.prepareStatement(LIST_PLANNER_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 out.add(new Planner(rs.getString(1)));
@@ -79,11 +81,12 @@ public class H2Planner implements AutoCloseable {
 
 
     public void addMilestone(Milestone milestone) {
-        final String ADD_PERSON_QUERY = "INSERT INTO milestone (title, description, plannerId) VALUES (?, ?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(ADD_PERSON_QUERY)) {
-            ps.setString(1, milestone.getTitle ());
-            ps.setString(2, milestone.getDescription());
-            ps.setInt(3, milestone.getPlannerId());
+        final String ADD_MILESTONE_QUERY = "INSERT INTO milestone (id, title, description, plannerId) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(ADD_MILESTONE_QUERY)) {
+            ps.setInt(1,milestone.getId());
+            ps.setString(2, milestone.getTitle ());
+            ps.setString(3, milestone.getDescription());
+            ps.setInt(4, milestone.getPlannerId());
 
             ps.execute();
         } catch (SQLException e) {
@@ -92,18 +95,48 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Milestone> findMilestone() {
-        final String LIST_PERSONS_QUERY = "SELECT title, description, plannerId FROM milestone";
+        final String LIST_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone";
         List<Milestone> out = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(LIST_PERSONS_QUERY)) {
+        try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONE_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Milestone(rs.getString(1), rs.getString(2), rs.getInt(3)));
+                out.add(new Milestone(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return out;
     }
+
+    public Milestone editMilestone() {
+        final String EDIT_MILESTONE_QUERY = "SELECT Id,  title, description, plannerId FROM milestone";
+        List<Milestone> out = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(EDIT_MILESTONE_QUERY)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                out.add(new Milestone(rs.getInt(1), rs.getString(2), rs.getString(4), rs.getInt(4)));
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+        for (Milestone m : out) {
+            if (m.getId() == 1) { //change to variable
+                System.out.println("1");
+                return m;
+            }
+        }
+        System.out.println("0");
+        return null;
+    }
+
+
+
+
+
+
 
 
     private void loadResource(String name) {

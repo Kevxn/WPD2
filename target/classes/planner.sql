@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS planner (
 );
 
 CREATE TABLE IF NOT EXISTS milestone (
-  id int AUTO_INCREMENT PRIMARY KEY,
+  id int (100) PRIMARY KEY,
   title VARCHAR (255),
   description VARCHAR (255),
   plannerId INTEGER (100)

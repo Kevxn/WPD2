@@ -1,12 +1,26 @@
 package app.model;
 
+
+
 public class Milestone {
+    private int id;
     private String title;
     private String description;
     private int plannerId;
 
+    private static int lastIdAllo = 0;
 
-    public Milestone(String title, String description, int plannerId) {
+    public Milestone(int id, String title, String description, int plannerId) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.plannerId = plannerId;
+    }
+
+//^ above is used with db
+
+    public Milestone( String title, String description, int plannerId) {
+        this.id = ++lastIdAllo;
         this.title = title;
         this.description = description;
         this.plannerId = plannerId;
@@ -16,6 +30,14 @@ public class Milestone {
 
     public Milestone(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
