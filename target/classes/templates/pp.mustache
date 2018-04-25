@@ -47,7 +47,10 @@
 <!--</div>-->
 
 <div class="container">
-    <svg viewBox="0 0 8 8"><use xlink:href="#home"></use></svg>
+    <!--<svg viewBox="0 0 8 8"><use xlink:href="#home"></use></svg>-->
+    {{^plannerList}}
+        There are no Planners
+    {{/plannerList}}
     <ol id="horizontal" style="padding-left: 0em;">
     {{#plannerList}}
         <div class="">
