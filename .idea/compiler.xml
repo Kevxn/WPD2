@@ -6,15 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
-        <module name="coursework" />
-=======
         <module name="BasicServlet" />
->>>>>>> master
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="coursework" target="1.7" />
+      <module name="BasicServlet" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
