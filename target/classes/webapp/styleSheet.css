@@ -1,0 +1,14 @@
+ol#horizontal li {
+    float:left;
+}
+
+
+
+.headingTop {
+    color: red !important;
+}
+
+#bootstrap-overrides h1 { /* 100+1=101 priority score, yay! */
+    line-height: 1;
+    color: RED;
+}

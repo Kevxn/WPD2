@@ -7,11 +7,8 @@
     <meta name="description" content="Shop Demo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        ol#horizontal li {
-            float:left;
-        }
-    </style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../webapp/styleSheet.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -44,9 +41,12 @@
     </div>
 </div>
 
+<!--<div class="headingTop">-->
+   <!--<h1>CSS WORK NOW</h1>-->
+<!--</div>-->
 
 <div class="container">
-    <ol id="horizontal">
+    <ol id="horizontal" style="padding-left: 0em;">
     {{#plannerList}}
         <div class="">
         <div class="card card-body bg-light" style="margin-bottom: 1em">
@@ -68,6 +68,7 @@
         <button type="submit" class="btn btn-primary" value="add3">Choose existing Planner</button>
         </div>
         </div>
+    </form>
 
 
 
