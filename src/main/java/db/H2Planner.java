@@ -106,7 +106,7 @@ public class H2Planner implements AutoCloseable {
     }
 
 
-    private void loadResource(String name) {
+    private void   loadResource(String name) {
         try {
             String cmd = new Scanner(getClass().getResource(name).openStream()).useDelimiter("\\Z").next();
             PreparedStatement ps = connection.prepareStatement(cmd);
