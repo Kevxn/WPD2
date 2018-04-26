@@ -48,14 +48,27 @@
 <!--</div>-->
 
 <div class="container">
+
+
+
+
+    <h1>Choose a planner to work on</h1>
+
+        <form method="POST" action="/pickPlanner">
+            <ol>
+
+
     <!--<svg viewBox="0 0 8 8"><use xlink:href="#home"></use></svg>-->
     {{^plannerList}}
         There are no Planners
     {{/plannerList}}
     <ol id="horizontal" style="padding-left: 0em;">
     {{#plannerList}}
+
         <div class="">
         <div class="card card-body bg-light" style="margin-bottom: 1em">
+            <input type="radio" name="plannerId" value="{{id}}">
+
        <li> {{plannerName}}</li>
         </div>
         </div>
@@ -63,17 +76,10 @@
     </ol>
 
 
-    <br>
+            <input type="hidden" name="method" value="pick">
+            <input type="submit" value="pick" style="margin-top:1em;"/>
 
-    <a href = "/planner" role="button" class="btn btn-primary btn-lg btn-block" id="cP">Create new Planner</a>
-    <form method="POST" action="/add3">
-        <br>
-        <div class="input-group mb-3">
-        <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
-        <div class="input-group-append">
-        <button type="submit" class="btn btn-primary" value="add3">Choose existing Planner</button>
-        </div>
-        </div>
+
     </form>
 
 

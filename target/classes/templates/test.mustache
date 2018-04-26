@@ -58,7 +58,7 @@
 
 <!--</div>-->
     {{^milestone}}
-        There are no Milestones
+        There are no Milestones yet
     {{/milestone}}
     <div class="row">
         {{#milestone}}
@@ -103,9 +103,14 @@
 <!--<h1>milestones</h1>-->
 
 <br>
-    <a href = "/milestone" role="button" class="btn btn-primary btn-lg btn-block">Add Milestone</a>
 
 
+    <button type="button" class="btn btn-Link"><a href = "/createPlanner">Add a Planner Object</a></button>
+    <button type="button" class="btn btn-Link"><a href = "/createMilestone">Add a Milestone Object</a></button>
+
+
+    <button type="button" class="btn btn-Link"><a href = "/editMilestone">Edit a milestone</a></button>
+    <button type="button" class="btn btn-Link"><a href = "/deleteMilestone">Delete a milestone</a></button>
 </div>
 
 

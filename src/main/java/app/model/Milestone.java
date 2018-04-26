@@ -63,13 +63,11 @@ public class Milestone {
             return plannerId;
         }
 
-        public void setPlannerId ( int plannerId){
-            this.plannerId = plannerId;
-        }
 
-        public String toString () {
-            return "\nMilestone: " + title +
-                    "\nMilestone Description: " + description;
-        }
+    public String toString() {
+        return "\nMilestone: " + title +
+                "\nMilestone Description: " + description +
+                "\n Milestone pid:" + plannerId;
+    }
 
     }

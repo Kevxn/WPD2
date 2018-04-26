@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class deleteServlet extends BaseServlet {
+public class deleteMilestone_Servlet extends BaseServlet {
 
 
     private static final String USER_MESSAGES_TEMPLATE = "src/main/resources/templates/delete.mustache";
@@ -24,25 +25,38 @@ public class deleteServlet extends BaseServlet {
     private static final String METHOD_PARAMETER = "method";
     private static final String ID_PARAMETER = "msgId";
 
-    private final H2Planner db;
+    private final H2Planner h2Planner;
+    private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;
 
-    public deleteServlet(H2Planner db) {
-        this.db = db;
+    public deleteMilestone_Servlet(H2Planner h2Planner, H2Milestone h2Milestone) {
+        this.h2Planner = h2Planner;
+        this.h2Milestone = h2Milestone;
         mustache = new MustacheRenderer();
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Milestone> milestoneList = db.findMilestone();
+        List<Milestone> milestoneList = h2Milestone.findMilestone();
         Map <String, Object> data = new HashMap<>();
-        data.put("milestoneList", milestoneList);
+        if(milestoneList.size() == 0){
+            response.sendRedirect("errorH.html");
+        } else {
+            int pid = h2Planner.getId();
+            List<Milestone> temp = new ArrayList<>();
 
-        String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
-        response.setContentType("text/html");
-        response.setStatus(200);
-        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+            for (Milestone m : milestoneList) {
+                if (m.getPlannerId() == pid) {
+                    temp.add(m);
+                }
 
+            }
+            data.put("milestoneList", temp);
+            String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
+            response.setContentType("text/html");
+            response.setStatus(200);
+            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+        }
     }
 
 
@@ -51,26 +65,20 @@ public class deleteServlet extends BaseServlet {
         if ("delete".equals(method)) {
             doDelete(request, response);
         } else {
-            response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
+            response.sendRedirect("/plannerHomepage");
         }
     }
 
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = getInt(request, ID_PARAMETER);
-        Milestone m = db.getMilestone(id);
+        Milestone m = h2Milestone.getMilestone(id);
         if (m != null) {
-            db.delete(id);
+            h2Milestone.delete(id);
         }
-        response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
+        response.sendRedirect("/plannerHomepage");
     }
 
-    static String userFromRequest(HttpServletRequest request) {
-        String uri = request.getRequestURI();
-        String[] sub = uri.split("/");
-        if (sub.length == 3) {
-            return sub[2];
-        }
-        return "";
-    }
+
+
 }

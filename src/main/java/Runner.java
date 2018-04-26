@@ -1,6 +1,7 @@
 
 
-import servlet.TestServlet;
+import db.H2Milestone;
+import servlet.homePage_Servlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -14,11 +15,12 @@ public class Runner {
 
     private static final int PORT = 9000;
    private final H2Planner h2Planner;
-
+    private final H2Milestone h2Milestone;
 
 
     private Runner() {
         h2Planner = new H2Planner();
+        h2Milestone = new H2Milestone();
 
     }
 
@@ -29,26 +31,16 @@ public class Runner {
         handler.setContextPath("/");
         handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/webapp");
 
-
-        handler.addServlet(new ServletHolder(new ppServlet(h2Planner)), "/pickPlanner/*");
-        handler.addServlet(new ServletHolder(new ppServlet(h2Planner)), "/add3"); // we post to here
-
-        handler.addServlet(new ServletHolder(new TestServlet(h2Planner)), "/serv/*");
-
-       handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/planner/*");
-       handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/add"); // we post to here
+        handler.addServlet(new ServletHolder(new pickPlanner_Servlet(h2Planner)), "/pickPlanner/*");
+        handler.addServlet(new ServletHolder(new homePage_Servlet(h2Planner, h2Milestone)), "/plannerHomepage/*");
+        handler.addServlet(new ServletHolder(new createPlanner_Servlet(h2Planner)), "/createPlanner/*");
 
         handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login/*");
         handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login-action"); // post to here
 
-        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/edit/*");
-        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/add4"); // we post to here
-
-        handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/milestone/*");
-       handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/add2"); // we post to here
-
-        handler.addServlet(new ServletHolder(new deleteServlet(h2Planner)), "/delete");
-
+        handler.addServlet(new ServletHolder(new editMilestone_Servlet(h2Milestone)), "/editMilestone/*");
+        handler.addServlet(new ServletHolder(new createMilestone_Servlet(h2Planner, h2Milestone)), "/createMilestone/*");
+        handler.addServlet(new ServletHolder(new deleteMilestone_Servlet(h2Planner, h2Milestone)), "/deleteMilestone");
         DefaultServlet ds = new DefaultServlet();
         handler.addServlet(new ServletHolder(ds), "/");
 
