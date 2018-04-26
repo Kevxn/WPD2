@@ -45,35 +45,15 @@ public class editServlet extends BaseServlet{
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        int id = Integer.parseInt(request.getParameter("id"));
-      //  String eTitle = request.getParameter("etxtTitle");
-      //  String eDescription = request.getParameter("etxtDescription");
-       // h2Planner.updateMilestone(id, eTitle, eDescription);
-
-        String method = getString(request, METHOD_PARAMETER, "post");
-        if ("delete".equals(method)) {
-            doDelete(request, response);
-        } else {
-            System.out.println("nope");
-        }
-      // System.out.println(m.toString());
-       //System.out.print(planner.toString());
+    // int id = Integer.parseInt(request.getParameter("id"));
+        String eTitle = request.getParameter("etxtTitle");
+       String eDescription = request.getParameter("etxtDescription");
+      //  Milestone m = h2Planner.getMilestone(id);
+        h2Planner.updateMilestone(1, eTitle, eDescription);
+      //  m.setTitle(eTitle);
+       // m.setDescription(eDescription);
         response.sendRedirect("/edit");
     }
-
-
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = getInt(request, ID_PARAMETER);
-
-        Milestone m = h2Planner.getMilestone(id);
-        if (m != null) {
-            h2Planner.delete(id);
-        }
-
-        response.sendRedirect("/edit");
-    }
-
 
 
 

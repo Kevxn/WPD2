@@ -112,47 +112,35 @@ public class H2Planner implements AutoCloseable {
 
 
   public Milestone getMilestone(int vid) {
-      final String UPDATE_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone WHERE id = ?";
+      final String GET_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone WHERE id = ?";
       Milestone m = new Milestone();
-      try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
+      try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE_QUERY)) {
           ps.setInt(1, vid);
           ResultSet rs = ps.executeQuery();
           while (rs.next()) {
               m = rs2milestone(rs);
-            //  System.out.println(m.toString());
-             // m.setTitle(title);
-            //  m.setDescription(description);
-            //  System.out.println(m.toString());
-
           }
-        //  insertMilestone(m);
-          return m;
-         //make void
+        return m;
       } catch (SQLException e) {
           throw new RuntimeException(e);
       }
 
   }
-       ////   public void insertMilestone(Milestone milestone){
-        //      String query = "INSERT into milestone (title, description) VALUES(?,?)";
-        //      try (PreparedStatement ps = getConnection().prepareStatement(query)) {
-       //      //     ps.setString(1, title);
-              //    ps.setString(2, description);
-              //    int count = ps.executeUpdate();
 
 
 
+    public void updateMilestone(int id, String title, String description) {
+        final String UPDATE_MILESTONE_QUERY = "UPDATE milestone SET title = ?, description = ? WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
+            ps.setString(1, title);
+            ps.setString(2, description);
+            ps.setInt(3, id);//can change to have m.getdescription and so on
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-
-         // ps.setInt(1, vid);
-         //  ResultSet rs =  ps.executeQuery();
-         //  System.out.println(rs)
-        //   m = rs2milestone(rs);
-        //   System.out.println(m.toString());
-    //  } catch (SQLException e){
-     //     throw new RuntimeException(e);
-    //  }
-    //    return m;
 
 
 

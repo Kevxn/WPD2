@@ -44,7 +44,7 @@
 
 
 
-    {{#milestoneList}}<input type="radio" name="msgId" value="{{id}}"> {{title}} {{description}} {{/milestoneList}}
+    {{#milestoneList}}{{id}} {{title}} {{description}} {{/milestoneList}}
 
     <form method="POST" action="/add4">
         <label for="id">Enter ID</label>
@@ -60,8 +60,8 @@
             </div>
         </div>
 
-        <input type="hidden" name="method" value="delete">
-        <input type="submit" value="Delete" style="margin-top:1em;"/>
+        <input type="hidden" name="method" value="go">
+        <input type="submit" value="go" style="margin-top:1em;"/>
     </form>
 
 
