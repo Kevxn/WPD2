@@ -11,12 +11,11 @@ import java.io.IOException;
 import java.io.SyncFailedException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class H2Planner implements AutoCloseable {
-
-    static final Logger LOG = LoggerFactory.getLogger(H2Planner.class);
 
     public static final String MEMORY = "jdbc:h2:mem:shop";
     public static final String FILE = "jdbc:h2:~/shop";
@@ -81,12 +80,14 @@ public class H2Planner implements AutoCloseable {
 
 
     public void addMilestone(Milestone milestone) {
+
         final String ADD_MILESTONE_QUERY = "INSERT INTO milestone (id, title, description, plannerId) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_MILESTONE_QUERY)) {
             ps.setInt(1,milestone.getId());
             ps.setString(2, milestone.getTitle ());
             ps.setString(3, milestone.getDescription());
             ps.setInt(4, milestone.getPlannerId());
+
 
             ps.execute();
         } catch (SQLException e) {
