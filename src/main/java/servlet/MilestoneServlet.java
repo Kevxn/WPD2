@@ -30,7 +30,7 @@ public class MilestoneServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Planner.findMilestone();
-        System.out.println(milestoneList.toString());
+
 
         Map<String, Object> data = new HashMap<>();
         data.put("milestoneList", milestoneList);
@@ -47,9 +47,11 @@ public class MilestoneServlet extends HttpServlet{
         String title = request.getParameter("txtTitle");
         String description = request.getParameter("txtDescription");
         int plannerId = h2Planner.getId();
+
         System.out.println(title + " " + description + plannerId);
       //  Milestone tempm = new Milestone();
       //  Long datec = tempm.getCreatedDate();
+
 
         Milestone milestone = new Milestone(title, description, plannerId);
         System.out.println(milestone);
