@@ -35,19 +35,37 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Planners</h1>
+        <h1 class="display-4">Milestone</h1>
     </div>
 </div>
-<div class="container">
-    <h1>Create a planner</h1>
 
-    <form method="POST" action="/add">
-        <div class="form-group">
-            <label for="plannerName">Planner Name:</label>
-            <input type="text" class="form-control" id="plannerName" name="plannerName" placeholder="Enter Planner Name">
+
+<div class="container">
+
+
+
+    {{#milestoneList}}{{id}} {{title}} {{description}} {{/milestoneList}}
+
+    <form method="POST" action="/add4">
+        <label for="id">Enter ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
+        <br>
+
+        <div class="row">
+            <div class="col">
+        <input type="text" id="etitle" name="etxtTitle" placeholder="eMilestone Title">
+            </div>
+            <div class="col">
+        <input type="text" id="edescription" name="etxtDescription" placeholder="eMilestone Description">
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" value="add">Create</button>
+
+        <input type="hidden" name="method" value="go">
+        <input type="submit" value="go" style="margin-top:1em;"/>
     </form>
+
+
+
 
 
 

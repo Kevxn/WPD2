@@ -38,10 +38,17 @@ public class Runner {
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/planner/*");
        handler.addServlet(new ServletHolder(new dbServlet(h2Planner)), "/add"); // we post to here
 
+        handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login/*");
+        handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login-action"); // post to here
 
+        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/edit/*");
+        handler.addServlet(new ServletHolder(new editServlet(h2Planner)), "/add4"); // we post to here
 
         handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/milestone/*");
        handler.addServlet(new ServletHolder(new MilestoneServlet(h2Planner)), "/add2"); // we post to here
+
+        handler.addServlet(new ServletHolder(new deleteServlet(h2Planner)), "/delete");
+
         DefaultServlet ds = new DefaultServlet();
         handler.addServlet(new ServletHolder(ds), "/");
 
