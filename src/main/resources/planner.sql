@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS milestone (
   id int AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR (255),
   description VARCHAR (255),
-  plannerId INTEGER (100)
-);
+  plannerId INTEGER (100),
+  );
 

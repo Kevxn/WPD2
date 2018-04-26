@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,11 @@ public class MilestoneServlet extends HttpServlet{
         String description = request.getParameter("txtDescription");
         int plannerId = h2Planner.getId();
         System.out.println(title + " " + description + plannerId);
+      //  Milestone tempm = new Milestone();
+      //  Long datec = tempm.getCreatedDate();
+
         Milestone milestone = new Milestone(title, description, plannerId);
+        System.out.println(milestone);
         h2Planner.addMilestone(milestone);
         //System.out.print(planner.toString());
         response.sendRedirect("/serv");

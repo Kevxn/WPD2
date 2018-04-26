@@ -9,6 +9,7 @@ import app.model.Planner;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -84,7 +85,6 @@ public class H2Planner implements AutoCloseable {
             ps.setString(1, milestone.getTitle ());
             ps.setString(2, milestone.getDescription());
             ps.setInt(3, milestone.getPlannerId());
-
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

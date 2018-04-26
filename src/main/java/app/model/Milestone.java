@@ -1,16 +1,19 @@
 package app.model;
 
+import java.util.Date;
+
 public class Milestone {
     private String title;
     private String description;
     private int plannerId;
-
 
     public Milestone(String title, String description, int plannerId) {
         this.title = title;
         this.description = description;
         this.plannerId = plannerId;
     }
+
+
 
     //add new constructor here
 
