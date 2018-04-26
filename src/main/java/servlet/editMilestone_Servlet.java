@@ -35,9 +35,8 @@ public class editMilestone_Servlet extends BaseServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      //  Milestone m = h2Planner.editMilestone();
         List<Milestone> milestoneList = h2Milestone.findMilestone();
-        Map <String, Object> data = new HashMap<>();
+         Map <String, Object> data = new HashMap<>();
          data.put("milestoneList", milestoneList);
 
         String html = mustache.render(DB_TEMPLATE1, data);
@@ -55,7 +54,7 @@ public class editMilestone_Servlet extends BaseServlet{
         h2Milestone.updateMilestone(1, eTitle, eDescription);
       //  m.setTitle(eTitle);
        // m.setDescription(eDescription);
-        response.sendRedirect("/edit");
+        response.sendRedirect("/plannerHomepage");
     }
 
 

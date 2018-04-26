@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,12 +25,12 @@ public class deleteMilestone_Servlet extends BaseServlet {
     private static final String METHOD_PARAMETER = "method";
     private static final String ID_PARAMETER = "msgId";
 
-    private final H2Planner db;
+    private final H2Planner h2Planner;
     private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;
 
-    public deleteMilestone_Servlet(H2Planner db, H2Milestone h2Milestone) {
-        this.db = db;
+    public deleteMilestone_Servlet(H2Planner h2Planner, H2Milestone h2Milestone) {
+        this.h2Planner = h2Planner;
         this.h2Milestone = h2Milestone;
         mustache = new MustacheRenderer();
     }
@@ -38,8 +39,17 @@ public class deleteMilestone_Servlet extends BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Milestone.findMilestone();
         Map <String, Object> data = new HashMap<>();
-        data.put("milestoneList", milestoneList);
 
+        int pid = h2Planner.getId();
+        List<Milestone> temp = new ArrayList<>();
+
+        for(Milestone m: milestoneList){
+            if(m.getPlannerId() == pid){
+                temp.add(m);
+            }
+
+        }
+        data.put("milestoneList", temp);
         String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);

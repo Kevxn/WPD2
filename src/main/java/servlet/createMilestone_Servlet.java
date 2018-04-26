@@ -52,6 +52,6 @@ public class createMilestone_Servlet extends HttpServlet{
         Milestone milestone = new Milestone(title, description, plannerId);
         h2Milestone.addMilestone(milestone);
         //System.out.print(planner.toString());
-        response.sendRedirect("/serv");
+        response.sendRedirect("/plannerHomepage");
     }
 }

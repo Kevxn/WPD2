@@ -74,7 +74,7 @@ public class pickPlanner_Servlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         h2Planner.setId(id);
-        response.sendRedirect("/serv");
+        response.sendRedirect("/plannerHomepage");
     }
 
 
