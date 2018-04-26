@@ -53,6 +53,9 @@ public class homePage_Servlet extends servlet.BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Planner> plannerList = h2Planner.findPlanner();
         List<Milestone> milestoneList = h2Milestone.findMilestone();
+        if(plannerList.size() == 0){
+            response.sendRedirect("errorH2.html");
+        }else{
         int pid = h2Planner.getId();
         System.out.println(pid);
         Planner p = h2Planner.getPlanner(pid);
@@ -70,5 +73,6 @@ public class homePage_Servlet extends servlet.BaseServlet {
             response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
         }
     }
+}
 
 

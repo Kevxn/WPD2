@@ -3,28 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="da03f30d-6831-4fd0-aef2-32ba0cb6e7d2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Milestone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/Milestone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/Planner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/H2Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/H2Planner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/deleteMilestone_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/deleteMilestone_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/milestone.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/milestone.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pp.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pp.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/errorH.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/webapp/errorH.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/model/Planner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/model/Planner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/H2Planner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/H2Planner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/mb.mustache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/milestone.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/milestone.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/pp.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pp.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/test.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/test.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webapp/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="H2Milestone.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="H2Milestone.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/H2Milestone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="-484">
               <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,11 +44,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homePage_Servlet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="homePage_Servlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            <state relative-caret-position="568">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="errorH2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/errorH2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -82,34 +71,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createPlanner_Servlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java">
+      <file leaf-file-name="createMilestone_Servlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+            <state relative-caret-position="228">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.mustache" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.mustache">
+      <file leaf-file-name="editMilestone_Servlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.mustache" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.mustache">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="milestone.mustache" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/milestone.mustache">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="320">
+              <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,6 +97,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="531">
               <caret line="61" selection-start-line="61" selection-end-line="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.mustache" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/edit.mustache">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -174,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/deleteMilestone_Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/milestone.mustache" />
-        <option value="$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/pp.mustache" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java" />
@@ -182,7 +168,9 @@
         <option value="$PROJECT_DIR$/src/main/java/db/H2Planner.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/model/Planner.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/model/Milestone.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/errorH2.html" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java" />
       </list>
     </option>
   </component>
@@ -272,6 +260,14 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="wpd2-coursework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wpd2-coursework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -287,6 +283,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/webapp" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -368,12 +369,12 @@
       <workItem from="1524692576782" duration="4806000" />
       <workItem from="1524762467108" duration="1803000" />
       <workItem from="1524765253040" duration="5000" />
-      <workItem from="1524766774474" duration="11252000" />
+      <workItem from="1524766774474" duration="11948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26386000" />
+    <option name="totallyTimeSpent" value="27082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -389,12 +390,12 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21580188" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21580188" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3298611" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25625" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.8372642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -447,13 +448,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/H2Planner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="139" column="42" lean-forward="true" selection-start-line="139" selection-start-column="42" selection-end-line="139" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -671,27 +665,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/edit.mustache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/delete.mustache">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -751,13 +728,6 @@
             <element signature="e#694#695#0" expanded="true" />
             <element signature="e#750#751#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -823,20 +793,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/H2Milestone.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/errorH2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        <state relative-caret-position="165">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/createMilestone_Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/edit.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/editMilestone_Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/H2Milestone.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        <state relative-caret-position="-484">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

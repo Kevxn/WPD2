@@ -31,7 +31,7 @@ public class createMilestone_Servlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Milestone.findMilestone();
-
+        //validation
 
         Map<String, Object> data = new HashMap<>();
         data.put("milestoneList", milestoneList);
