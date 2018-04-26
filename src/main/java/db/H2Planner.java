@@ -65,18 +65,38 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Planner> findPlanner() {
-        final String LIST_PLANNER_QUERY = "SELECT plannerName FROM planner";
+        final String LIST_PLANNER_QUERY = "SELECT id, plannerName FROM planner";
         List<Planner> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_PLANNER_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Planner(rs.getString(1)));
+                out.add(new Planner(rs.getInt(1), rs.getString(2)));
+                System.out.println(out);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return out;
     }
+
+
+
+    public Planner getPlanner(int vid) {
+        final String GET_MILESTONE_QUERY = "SELECT id, plannerName FROM planner WHERE id = ?";
+        Planner p = new Planner();
+        try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE_QUERY)) {
+            ps.setInt(1, vid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                p = rs2Planner(rs);
+            }
+            return p;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 
 
@@ -100,9 +120,8 @@ public class H2Planner implements AutoCloseable {
         this.id = id;
     }
 
-    private static Milestone rs2milestone(ResultSet rs) throws SQLException {
-        return new Milestone(rs.getInt(1), rs.getString(2),
-                rs.getString(3), rs.getInt(4));
+    private static Planner rs2Planner(ResultSet rs) throws SQLException {
+        return new Planner(rs.getInt(1), rs.getString(2));
     }
 
 

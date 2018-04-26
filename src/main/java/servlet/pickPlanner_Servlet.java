@@ -24,6 +24,8 @@ public class pickPlanner_Servlet extends BaseServlet {
     private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/pp.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
+  private static final String ID_PARAMETER = "plannerId";
+
     private final H2Planner h2Planner;
     private int id;
 
@@ -72,8 +74,13 @@ public class pickPlanner_Servlet extends BaseServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+     //   int id = Integer.parseInt(request.getParameter("id"));
+
+
+        int id = getInt(request, ID_PARAMETER);
+        System.out.println(id);
         h2Planner.setId(id);
+
         response.sendRedirect("/plannerHomepage");
     }
 

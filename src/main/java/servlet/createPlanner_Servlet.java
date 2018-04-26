@@ -50,7 +50,7 @@ public class createPlanner_Servlet extends HttpServlet {
         String plannerName = request.getParameter("plannerName");
         Planner planner = new Planner(plannerName);
         h2Planner.addPlanner(planner);
-        //System.out.print(planner.toString());
+        System.out.print(planner.toString());
         response.sendRedirect("/pickPlanner");
 
     }

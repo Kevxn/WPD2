@@ -35,23 +35,28 @@ public class editMilestone_Servlet extends BaseServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         List<Milestone> milestoneList = h2Milestone.findMilestone();
-         Map <String, Object> data = new HashMap<>();
-         data.put("milestoneList", milestoneList);
+        Map<String, Object> data = new HashMap<>();
+        if (milestoneList.size() == 0) {
+            response.sendRedirect("errorH.html");
+        } else {
+            data.put("milestoneList", milestoneList);
 
-        String html = mustache.render(DB_TEMPLATE1, data);
-        response.setContentType("text/html");
-        response.setStatus(200);
-        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+            String html = mustache.render(DB_TEMPLATE1, data);
+            response.setContentType("text/html");
+            response.setStatus(200);
+            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+        }
+
     }
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    // int id = Integer.parseInt(request.getParameter("id"));
+     int id = Integer.parseInt(request.getParameter("id"));
         String eTitle = request.getParameter("etxtTitle");
        String eDescription = request.getParameter("etxtDescription");
       //  Milestone m = h2Planner.getMilestone(id);
-        h2Milestone.updateMilestone(1, eTitle, eDescription);
+        h2Milestone.updateMilestone(id, eTitle, eDescription);
       //  m.setTitle(eTitle);
        // m.setDescription(eDescription);
         response.sendRedirect("/plannerHomepage");

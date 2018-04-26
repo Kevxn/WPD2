@@ -66,7 +66,8 @@ public class Milestone {
 
     public String toString() {
         return "\nMilestone: " + title +
-                "\nMilestone Description: " + description;
+                "\nMilestone Description: " + description +
+                "\n Milestone pid:" + plannerId;
     }
 
 }

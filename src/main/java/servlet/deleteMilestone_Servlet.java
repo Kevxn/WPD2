@@ -39,22 +39,24 @@ public class deleteMilestone_Servlet extends BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Milestone.findMilestone();
         Map <String, Object> data = new HashMap<>();
+        if(milestoneList.size() == 0){
+            response.sendRedirect("errorH.html");
+        } else {
+            int pid = h2Planner.getId();
+            List<Milestone> temp = new ArrayList<>();
 
-        int pid = h2Planner.getId();
-        List<Milestone> temp = new ArrayList<>();
+            for (Milestone m : milestoneList) {
+                if (m.getPlannerId() == pid) {
+                    temp.add(m);
+                }
 
-        for(Milestone m: milestoneList){
-            if(m.getPlannerId() == pid){
-                temp.add(m);
             }
-
+            data.put("milestoneList", temp);
+            String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
+            response.setContentType("text/html");
+            response.setStatus(200);
+            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
         }
-        data.put("milestoneList", temp);
-        String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
-        response.setContentType("text/html");
-        response.setStatus(200);
-        response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
-
     }
 
 
@@ -63,7 +65,7 @@ public class deleteMilestone_Servlet extends BaseServlet {
         if ("delete".equals(method)) {
             doDelete(request, response);
         } else {
-            response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
+            response.sendRedirect("/plannerHomepage");
         }
     }
 
@@ -74,7 +76,7 @@ public class deleteMilestone_Servlet extends BaseServlet {
         if (m != null) {
             h2Milestone.delete(id);
         }
-        response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
+        response.sendRedirect("/plannerHomepage");
     }
 
 

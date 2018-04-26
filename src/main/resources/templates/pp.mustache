@@ -45,16 +45,18 @@
 
 
     <h1>Choose a planner to work on</h1>
-    <ol>
+
+        <form method="POST" action="/pickPlanner">
+            <ol>
     {{#plannerList}}
+        <input type="radio" name="plannerId" value="{{id}}">
        <li> {{plannerName}}</li>
     {{/plannerList}}
     </ol>
-    <form method="POST" action="/pickPlanner">
-        <label for="id">Enter ID</label>
-        <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
-        <br>
-        <button type="submit" class="btn btn-primary" value="add">Create</button>
+
+            <input type="hidden" name="method" value="pick">
+            <input type="submit" value="pick" style="margin-top:1em;"/>
+
     </form>
 
 
