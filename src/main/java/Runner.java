@@ -31,26 +31,16 @@ public class Runner {
         handler.setContextPath("/");
         handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/webapp");
 
-
         handler.addServlet(new ServletHolder(new pickPlanner_Servlet(h2Planner)), "/pickPlanner/*");
-        handler.addServlet(new ServletHolder(new pickPlanner_Servlet(h2Planner)), "/add3"); // we post to here
-
         handler.addServlet(new ServletHolder(new homePage_Servlet(h2Planner, h2Milestone)), "/serv/*");
-
-       handler.addServlet(new ServletHolder(new createPlanner_Servlet(h2Planner)), "/planner/*");
-       handler.addServlet(new ServletHolder(new createPlanner_Servlet(h2Planner)), "/add"); // we post to here
+        handler.addServlet(new ServletHolder(new createPlanner_Servlet(h2Planner)), "/planner/*");
 
         handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login/*");
         handler.addServlet(new ServletHolder(new LoginServlet(h2Planner)), "/login-action"); // post to here
 
         handler.addServlet(new ServletHolder(new editMilestone_Servlet(h2Milestone)), "/edit/*");
-        handler.addServlet(new ServletHolder(new editMilestone_Servlet(h2Milestone)), "/add4"); // we post to here
-
         handler.addServlet(new ServletHolder(new createMilestone_Servlet(h2Planner, h2Milestone)), "/milestone/*");
-       handler.addServlet(new ServletHolder(new createMilestone_Servlet(h2Planner, h2Milestone)), "/add2"); // we post to here
-
         handler.addServlet(new ServletHolder(new deleteMilestone_Servlet(h2Planner, h2Milestone)), "/delete");
-
         DefaultServlet ds = new DefaultServlet();
         handler.addServlet(new ServletHolder(ds), "/");
 
