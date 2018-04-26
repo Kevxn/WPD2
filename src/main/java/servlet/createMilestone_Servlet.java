@@ -15,20 +15,22 @@ import java.util.Map;
 import app.model.*;
 import db.*;
 
-public class MilestoneServlet extends HttpServlet{
+public class createMilestone_Servlet extends HttpServlet{
 
     private static final String DB_TEMPLATE = "src/main/resources/templates/milestone.mustache";
     private final H2Planner h2Planner;
+    private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;
 
-    public MilestoneServlet(H2Planner h2Planner) {
+    public createMilestone_Servlet(H2Planner h2Planner, H2Milestone h2Milestone) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
+        this.h2Milestone = h2Milestone;
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Milestone> milestoneList = h2Planner.findMilestone();
+        List<Milestone> milestoneList = h2Milestone.findMilestone();
 
 
         Map<String, Object> data = new HashMap<>();
@@ -48,7 +50,7 @@ public class MilestoneServlet extends HttpServlet{
         int plannerId = h2Planner.getId();
 
         Milestone milestone = new Milestone(title, description, plannerId);
-        h2Planner.addMilestone(milestone);
+        h2Milestone.addMilestone(milestone);
         //System.out.print(planner.toString());
         response.sendRedirect("/serv");
     }

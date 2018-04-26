@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class deleteServlet extends BaseServlet {
+public class deleteMilestone_Servlet extends BaseServlet {
 
 
     private static final String USER_MESSAGES_TEMPLATE = "src/main/resources/templates/delete.mustache";
@@ -25,16 +25,18 @@ public class deleteServlet extends BaseServlet {
     private static final String ID_PARAMETER = "msgId";
 
     private final H2Planner db;
+    private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;
 
-    public deleteServlet(H2Planner db) {
+    public deleteMilestone_Servlet(H2Planner db, H2Milestone h2Milestone) {
         this.db = db;
+        this.h2Milestone = h2Milestone;
         mustache = new MustacheRenderer();
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Milestone> milestoneList = db.findMilestone();
+        List<Milestone> milestoneList = h2Milestone.findMilestone();
         Map <String, Object> data = new HashMap<>();
         data.put("milestoneList", milestoneList);
 
@@ -58,19 +60,13 @@ public class deleteServlet extends BaseServlet {
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = getInt(request, ID_PARAMETER);
-        Milestone m = db.getMilestone(id);
+        Milestone m = h2Milestone.getMilestone(id);
         if (m != null) {
-            db.delete(id);
+            h2Milestone.delete(id);
         }
         response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
     }
 
-    static String userFromRequest(HttpServletRequest request) {
-        String uri = request.getRequestURI();
-        String[] sub = uri.split("/");
-        if (sub.length == 3) {
-            return sub[2];
-        }
-        return "";
-    }
+
+
 }

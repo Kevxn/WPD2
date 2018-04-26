@@ -1,6 +1,7 @@
 package servlet;
 
 import app.model.Milestone;
+import db.H2Milestone;
 import db.H2Planner;
 
 
@@ -14,26 +15,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class editServlet extends BaseServlet{
+public class editMilestone_Servlet extends BaseServlet{
 
     private static final String DB_TEMPLATE1 = "src/main/resources/templates/edit.mustache";
     private static final String DB_TEMPLATE2 = "src/main/resources/templates/edit2.mustache";
-    private final H2Planner h2Planner;
+
+    private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;
 
     private static final String ID_PARAMETER = "msgId";
     private static final String METHOD_PARAMETER = "method";
 
 
-    public editServlet(H2Planner h2Planner) {
+    public editMilestone_Servlet( H2Milestone h2Milestone) {
         mustache = new MustacheRenderer();
-        this.h2Planner = h2Planner;
+
+        this.h2Milestone = h2Milestone;
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       //  Milestone m = h2Planner.editMilestone();
-        List<Milestone> milestoneList = h2Planner.findMilestone();
+        List<Milestone> milestoneList = h2Milestone.findMilestone();
         Map <String, Object> data = new HashMap<>();
          data.put("milestoneList", milestoneList);
 
@@ -49,7 +52,7 @@ public class editServlet extends BaseServlet{
         String eTitle = request.getParameter("etxtTitle");
        String eDescription = request.getParameter("etxtDescription");
       //  Milestone m = h2Planner.getMilestone(id);
-        h2Planner.updateMilestone(1, eTitle, eDescription);
+        h2Milestone.updateMilestone(1, eTitle, eDescription);
       //  m.setTitle(eTitle);
        // m.setDescription(eDescription);
         response.sendRedirect("/edit");

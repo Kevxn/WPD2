@@ -18,7 +18,7 @@ import java.util.Map;
 //import java.nio.charset.Charset;
 
 
-public class ppServlet extends BaseServlet {
+public class pickPlanner_Servlet extends BaseServlet {
     @SuppressWarnings("unused")
 
     private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/pp.mustache";
@@ -30,7 +30,7 @@ public class ppServlet extends BaseServlet {
 
 
 
-    public ppServlet(H2Planner h2Planner) {
+    public pickPlanner_Servlet(H2Planner h2Planner) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
 

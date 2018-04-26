@@ -16,12 +16,12 @@ import java.util.Map;
 
 //for new planner (index page)
 
-public class dbServlet extends HttpServlet {
+public class createPlanner_Servlet extends HttpServlet {
     private static final String DB_TEMPLATE = "src/main/resources/templates/index.mustache";
     private final H2Planner h2Planner;
     private final MustacheRenderer mustache;
 
-    public dbServlet(H2Planner h2Planner) {
+    public createPlanner_Servlet(H2Planner h2Planner) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
     }

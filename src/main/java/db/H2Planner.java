@@ -16,7 +16,6 @@ import java.util.Scanner;
 
 public class H2Planner implements AutoCloseable {
 
-    static final Logger LOG = LoggerFactory.getLogger(H2Planner.class);
 
     public static final String MEMORY = "jdbc:h2:mem:shop";
     public static final String FILE = "jdbc:h2:~/shop";
@@ -79,84 +78,6 @@ public class H2Planner implements AutoCloseable {
         return out;
     }
 
-
-    public void addMilestone(Milestone milestone) {
-        final String ADD_MILESTONE_QUERY = "INSERT INTO milestone (id, title, description, plannerId) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(ADD_MILESTONE_QUERY)) {
-            ps.setInt(1,milestone.getId());
-            ps.setString(2, milestone.getTitle ());
-            ps.setString(3, milestone.getDescription());
-            ps.setInt(4, milestone.getPlannerId());
-
-            ps.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public List<Milestone> findMilestone() {
-        int varID = 0;
-        final String LIST_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone";
-        List<Milestone> out = new ArrayList<>();
-        try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONE_QUERY)) {
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                out.add(new Milestone(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4)));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return out;
-    }
-
-
-
-  public Milestone getMilestone(int vid) {
-      final String GET_MILESTONE_QUERY = "SELECT id, title, description, plannerId FROM milestone WHERE id = ?";
-      Milestone m = new Milestone();
-      try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE_QUERY)) {
-          ps.setInt(1, vid);
-          ResultSet rs = ps.executeQuery();
-          while (rs.next()) {
-              m = rs2milestone(rs);
-          }
-        return m;
-      } catch (SQLException e) {
-          throw new RuntimeException(e);
-      }
-
-  }
-
-
-
-    public void updateMilestone(int id, String title, String description) {
-        final String UPDATE_MILESTONE_QUERY = "UPDATE milestone SET title = ?, description = ? WHERE id = ?";
-        try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
-            ps.setString(1, title);
-            ps.setString(2, description);
-            ps.setInt(3, id);//can change to have m.getdescription and so on
-            ps.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
-
-
-
-
-    public void delete(int id) {
-        System.out.println("delete");
-        String ps = "DELETE FROM milestone WHERE id = ?";
-        try (PreparedStatement p = connection.prepareStatement(ps)) {
-            p.setLong(1, id);
-            p.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 
 

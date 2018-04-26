@@ -2,6 +2,7 @@ package servlet;
 
 
 import app.model.*;
+import db.H2Milestone;
 import db.H2Planner;
 
 import javax.servlet.ServletException;
@@ -13,21 +14,23 @@ import java.util.*;
 //import java.nio.charset.Charset;
 
 
-public class TestServlet extends servlet.BaseServlet {
+public class homePage_Servlet extends servlet.BaseServlet {
     @SuppressWarnings("unused")
 
     private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/test.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
     private final H2Planner h2Planner;
+    private final H2Milestone h2Milestone;
 
 
 
 
 
-    public TestServlet(H2Planner h2Planner) {
+    public homePage_Servlet(H2Planner h2Planner, H2Milestone h2Milestone) {
         mustache = new MustacheRenderer();
         this.h2Planner = h2Planner;
+        this.h2Milestone = h2Milestone;
 
     }
 
@@ -55,7 +58,7 @@ public class TestServlet extends servlet.BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         List<Planner> plannerList = h2Planner.findPlanner();
-        List<Milestone> milestoneList = h2Planner.findMilestone();
+        List<Milestone> milestoneList = h2Milestone.findMilestone();
         int pid = h2Planner.getId();
         List<Milestone> temp = new ArrayList<>();
 
@@ -65,10 +68,7 @@ public class TestServlet extends servlet.BaseServlet {
             }
 
         }
-
         plannerList.get(pid).addMilestones(temp);
-       //Map <String, Object> data = new HashMap<>();
-       // data.put("plannerList", plannerList);
         String html = mustache.render(MESSAGE_BOARD_TEMPLATE, plannerList.get(pid));
         response.setContentType("text/html");
         response.setStatus(200);
