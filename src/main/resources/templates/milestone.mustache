@@ -11,19 +11,19 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Milestone Planner</a>
+    <a class="navbar-brand" href="/pickPlanner">Milestone Planner</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Placeholder</a>
-            </li>
+            <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Placeholder</a>-->
+            <!--</li>-->
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log Out</button>
@@ -43,28 +43,16 @@
 <div class="container">
 
 
-    <form method="POST" action="createMilestone">
-        <div class="row">
-            <div class="col">
-        <input type="text" id="title" name="txtTitle" placeholder="Milestone Title">
-            </div>
-            <div class="col">
-        <input type="text" id="description" name="txtDescription" placeholder="Milestone Description">
-            </div>
+    <form method="POST" action="/createMilestone">
+        <div class="form-group">
+        <input type="text" class="form-control" id="title" name="txtTitle" placeholder="Milestone Title">
         </div>
-
-
-
-
-
-        <input type="submit" value="add">
+        <div class="form-group">
+        <input type="text" class="form-control"  id="description" name="txtDescription" placeholder="Milestone Description">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" value="add2">Create</button>
 
     </form>
-
-
-
-
-
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.SyncFailedException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -94,36 +95,33 @@ public class H2Planner implements AutoCloseable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 
+        private void loadResource(String name) {
+            try {
+                String cmd = new Scanner(getClass().getResource(name).openStream()).useDelimiter("\\Z").next();
+                PreparedStatement ps = connection.prepareStatement(cmd);
+                ps.execute();
+            } catch (SQLException | IOException e) {
+                throw new RuntimeException(e);
 
-
-
-    private void loadResource(String name) {
-        try {
-            String cmd = new Scanner(getClass().getResource(name).openStream()).useDelimiter("\\Z").next();
-            PreparedStatement ps = connection.prepareStatement(cmd);
-            ps.execute();
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            }
         }
-    }
 
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public int getId () {
+            return id;
+        }
+
 
     private static Planner rs2Planner(ResultSet rs) throws SQLException {
         return new Planner(rs.getInt(1), rs.getString(2));
     }
 
+    public void setId ( int id){ this.id = id;
+        }
 
-}
 
+    }

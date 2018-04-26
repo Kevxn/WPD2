@@ -8,22 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../webapp/styleSheet.css">
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Milestone Planner</a>
+    <a class="navbar-brand" href="/pickPlanner">Milestone Planner</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Placeholder</a>
-            </li>
+            <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Placeholder</a>-->
+            <!--</li>-->
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log Out</button>
@@ -31,16 +34,21 @@
     </div>
 </nav>
 
-<br> <br>
+
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
+        <br> <br>
         <h1 class="display-4">Planners</h1>
     </div>
 </div>
 
+<!--<div class="headingTop">-->
+   <!--<h1>CSS WORK NOW</h1>-->
+<!--</div>-->
 
 <div class="container">
+
 
 
 
@@ -48,16 +56,32 @@
 
         <form method="POST" action="/pickPlanner">
             <ol>
+
+
+    <!--<svg viewBox="0 0 8 8"><use xlink:href="#home"></use></svg>-->
+    {{^plannerList}}
+        There are no Planners
+    {{/plannerList}}
+    <ol id="horizontal" style="padding-left: 0em;">
     {{#plannerList}}
-        <input type="radio" name="plannerId" value="{{id}}">
+
+        <div class="">
+        <div class="card card-body bg-light" style="margin-bottom: 1em">
+            <input type="radio" name="plannerId" value="{{id}}">
+
        <li> {{plannerName}}</li>
+        </div>
+        </div>
     {{/plannerList}}
     </ol>
+
 
             <input type="hidden" name="method" value="pick">
             <input type="submit" value="pick" style="margin-top:1em;"/>
 
+
     </form>
+
 
 
 

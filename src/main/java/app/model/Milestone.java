@@ -1,5 +1,6 @@
 package app.model;
 
+import java.util.Date;
 
 
 public class Milestone {
@@ -8,61 +9,60 @@ public class Milestone {
     private String description;
     private int plannerId;
 
+
     private static int lastIdAllo = 0;
 
-    public Milestone(int id, String title, String description, int plannerId) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.plannerId = plannerId;
-    }
+    public Milestone(int id, String title, String description, int plannerId){
+            this.id = id;
+            this.title = title;
+            this.description = description;
+            this.plannerId = plannerId;
+        }
 
 //^ above is used with db
 
-    public Milestone( String title, String description, int plannerId) {
-        this.id = ++lastIdAllo;
-        this.title = title;
-        this.description = description;
-        this.plannerId = plannerId;
-    }
+    public Milestone(String title, String description, int plannerId){
+            this.id = ++lastIdAllo;
+            this.title = title;
+            this.description = description;
+            this.plannerId = plannerId;
+        }
 
-    //add new constructor here
 
-    public Milestone(){
+        //add new constructor here
 
-    }
+    public Milestone() {
 
-    public int getId() {
-        return id;
-    }
+        }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public int getId () {
+            return id;
+        }
 
-    public String getTitle() {
-        return title;
-    }
+        public void setId ( int id){
+            this.id = id;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public String getTitle () {
+            return title;
+        }
 
-    public String getDescription() {
-        return description;
-    }
+        public void setTitle (String title){
+            this.title = title;
+        }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+        public String getDescription () {
+            return description;
+        }
 
-    public int getPlannerId() {
-        return plannerId;
-    }
+        public void setDescription (String description){
+            this.description = description;
+        }
 
-    public void setPlannerId(int plannerId) {
-        this.plannerId = plannerId;
-    }
+        public int getPlannerId () {
+            return plannerId;
+        }
+
 
     public String toString() {
         return "\nMilestone: " + title +
@@ -70,4 +70,4 @@ public class Milestone {
                 "\n Milestone pid:" + plannerId;
     }
 
-}
+    }
