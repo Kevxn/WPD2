@@ -48,14 +48,11 @@ public class createMilestone_Servlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("txtTitle");
         String description = request.getParameter("txtDescription");
+        String dueDate = request.getParameter("txtDueDate");
         int plannerId = h2Planner.getId();
 
-        System.out.println(title + " " + description + plannerId);
-      //  Milestone tempm = new Milestone();
-      //  Long datec = tempm.getCreatedDate();
 
-
-        Milestone milestone = new Milestone(title, description, plannerId);
+        Milestone milestone = new Milestone(title, description, plannerId, dueDate);
 
         h2Milestone.addMilestone(milestone);
         //System.out.print(planner.toString());

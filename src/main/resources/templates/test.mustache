@@ -66,6 +66,7 @@
             <div class="card card-body bg-light" style="margin-bottom: 1em;">
                         <h3>{{title}}</h3>
                         <p>{{description}}</p>
+                        <p>{{dueDate}}</p>
             </div>
         </div>
                 {{/milestone}}
@@ -105,12 +106,12 @@
 <br>
 
 
-    <button type="button" class="btn btn-Link"><a href = "/createPlanner">Add a Planner Object</a></button>
-    <button type="button" class="btn btn-Link"><a href = "/createMilestone">Add a Milestone Object</a></button>
+    <a role="button" type="button" class="btn btn-primary btn-lg" href = "/pickPlanner">Pick Planner</a>
+    <a role="button" type="button" class="btn btn-primary btn-lg" href = "/createMilestone">Add Milestone</a>
 
 
-    <button type="button" class="btn btn-Link"><a href = "/editMilestone">Edit a milestone</a></button>
-    <button type="button" class="btn btn-Link"><a href = "/deleteMilestone">Delete a milestone</a></button>
+    <a role="button" type="button" class="btn btn-primary btn-lg" href = "/editMilestone">Edit Milestone</a>
+    <a role="button" type="button" class="btn btn-primary btn-lg" href = "/deleteMilestone">Delete Milestone</a>
 </div>
 
 

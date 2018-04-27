@@ -8,24 +8,27 @@ public class Milestone {
     private String title;
     private String description;
     private int plannerId;
+    private String dueDate;
 
 
     private static int lastIdAllo = 0;
 
-    public Milestone(int id, String title, String description, int plannerId){
+    public Milestone(int id, String title, String description, int plannerId, String dueDate){
             this.id = id;
             this.title = title;
             this.description = description;
             this.plannerId = plannerId;
+            this.dueDate = dueDate;
         }
 
 //^ above is used with db
 
-    public Milestone(String title, String description, int plannerId){
+    public Milestone(String title, String description, int plannerId, String dueDate){
             this.id = ++lastIdAllo;
             this.title = title;
             this.description = description;
             this.plannerId = plannerId;
+            this.dueDate = dueDate;
         }
 
 
@@ -62,6 +65,10 @@ public class Milestone {
         public int getPlannerId () {
             return plannerId;
         }
+
+        public String getDueDate () { return dueDate; }
+
+        public void setDueDate (String dueDate) {this.dueDate = dueDate; }
 
 
     public String toString() {

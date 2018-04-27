@@ -72,6 +72,8 @@ public class homePage_Servlet extends servlet.BaseServlet {
             response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
         }
     }
+
+
 }
 
 
