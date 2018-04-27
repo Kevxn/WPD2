@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS milestone (
   title VARCHAR (255),
   description VARCHAR (255),
   plannerId INTEGER (100),
+  dueDate VARCHAR (100),
 );
 
 
