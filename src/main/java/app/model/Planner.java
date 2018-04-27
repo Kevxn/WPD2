@@ -9,6 +9,7 @@ public class Planner {
     private int id;
     private String plannerName;
     private ArrayList<Milestone> milestone;
+    private String cUser;
 
 
     private static int lastIdAllo = 0;
@@ -29,6 +30,23 @@ public class Planner {
         this.plannerName = plannerName;
         this.milestone = new ArrayList<>();
     }
+
+
+    public Planner(String plannerName, String cUser){
+        this.id = id;
+        this.plannerName = plannerName;
+        this.milestone = new ArrayList<>();
+        this.cUser = cUser;
+    }
+
+    public Planner(int id, String plannerName, String cUser){
+        this.id = id;
+        this.plannerName = plannerName;
+        this.cUser = cUser;
+        this.milestone = new ArrayList<>();
+
+    }
+
 
 
     public int getId() {
@@ -72,10 +90,16 @@ public class Planner {
     }
 
 
+    public String getcUser() {
+        return cUser;
+    }
 
+    public void setcUser(String cUser) {
+        this.cUser = cUser;
+    }
 
     public String toString() {
-        return "id:" + id + "name" + plannerName;
+        return "id:" + id + "name" + plannerName + "cUser" + cUser;
     }
 
 
