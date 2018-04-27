@@ -1,13 +1,16 @@
 <html>
 
 
-<form action="/login-action" method="POST">
+<form action="/login" method="POST">
     <label for="txtUsername">Username: </label>
     <input type="text" name="txtUsername">
     <label for="txtPassword">Password: </label>
     <input type="password" name="txtPassword">
     <br>
     <input type="submit" name="btnLogin" value="Login">
+    {{#err}}
+        {{err}}
+    {{/err}}
 </form>
 
 
