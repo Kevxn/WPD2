@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.sql.Date;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,12 +71,18 @@ public class pickPlanner_Servlet extends BaseServlet {
             response.sendRedirect("/login");
         }
         String currentUser = (String)session.getAttribute("username");
-        // this gets the currently logged in user
+        System.out.println(currentUser);
 
-
+        List<Planner> temp = new ArrayList<>();
         List<Planner> plannerList = h2Planner.findPlanner();
+        for (Planner p : plannerList) {
+            if (p.getcUser().equals(currentUser)){
+                temp.add(p);
+            }
+        }
         Map <String, Object> data = new HashMap<>();
-        data.put("plannerList", plannerList);
+       // data.put("username", currentUser); //fix this
+        data.put("plannerList", temp);
         String html = mustache.render(MESSAGE_BOARD_TEMPLATE, data);
         response.setContentType("text/html");
         response.setStatus(200);

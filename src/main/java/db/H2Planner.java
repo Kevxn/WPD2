@@ -55,10 +55,10 @@ public class H2Planner implements AutoCloseable {
     }
 
     public void addPlanner(Planner planner) {
-        final String ADD_PLANNER_QUERY = "INSERT INTO planner (plannerName) VALUES (?)";
+        final String ADD_PLANNER_QUERY = "INSERT INTO planner (plannerName, cUser) VALUES (?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_PLANNER_QUERY)) {
             ps.setString(1, planner.getPlannerName ());
-
+            ps.setString(2, planner.getcUser());
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,13 +66,12 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Planner> findPlanner() {
-        final String LIST_PLANNER_QUERY = "SELECT id, plannerName FROM planner";
+        final String LIST_PLANNER_QUERY = "SELECT id, plannerName, cUser FROM planner";
         List<Planner> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_PLANNER_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Planner(rs.getInt(1), rs.getString(2)));
-                System.out.println(out);
+                out.add(new Planner(rs.getInt(1), rs.getString(2), rs.getString(3)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

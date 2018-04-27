@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -47,10 +48,17 @@ public class createPlanner_Servlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+
+        if (session == null || session.getAttribute("username") == ""){
+            response.sendRedirect("/login");
+        }
+        String currentUser = (String)session.getAttribute("username");
+
         String plannerName = request.getParameter("plannerName");
-        Planner planner = new Planner(plannerName);
+        Planner planner = new Planner(plannerName, currentUser);
+
         h2Planner.addPlanner(planner);
-        System.out.print(planner.toString());
         response.sendRedirect("/pickPlanner");
 
     }

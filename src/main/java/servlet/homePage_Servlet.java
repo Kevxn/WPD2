@@ -61,8 +61,7 @@ public class homePage_Servlet extends servlet.BaseServlet {
         Planner p = h2Planner.getPlanner(pid);
         List<Milestone> temp = new ArrayList<>();
         for (Milestone m : milestoneList) {
-            if (m.getPlannerId() == p.getId()) { //Pid is set to whatever planner is loaded, not the planner id
-                System.out.println("milestone test:" + m.toString());
+            if (m.getPlannerId() == p.getId()) {
                 temp.add(m);
             }
         }
