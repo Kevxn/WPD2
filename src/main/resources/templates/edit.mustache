@@ -53,7 +53,7 @@
     {{#milestoneList}}
     <div class ="col-md-4">
     <div class="card card-body bg-light" style="margin-bottom: 1em">
-    <h4 style="font-weight: normal;">ID:{{id}} {{title}}</h4>
+    <h4 style="font-weight: normal;">ID: {{id}} {{title}}</h4>
     <p>{{description}}</p>
     </div>
     </div>
@@ -63,27 +63,27 @@
 <form method="POST" action="/editMilestone">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="id">Milestone ID</label>
-            <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
+            <label for="id">Enter ID Of Milestone to Update</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID">
         </div>
         <div class="form-group col-md-6">
             <label for="etitle">Edit Title</label>
-            <input type="text" class="form-control" id="etitle" name="etxtTitle" placeholder="Edit Title">
+            <input type="text" class="form-control" id="etitle" name="etxtTitle" placeholder="Enter new Title">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="edescription">Edit Description</label>
-            <input type="text" class="form-control" id="edescription" name="etxtDescription" placeholder="Edit Description">
+            <input type="text" class="form-control" id="edescription" name="etxtDescription" placeholder="Enter new Description">
         </div>
         <div class="form-group col-md-6">
             <label for="datepicker">Edit Due Date</label>
-            <input type="text" class="form-control" name="etxtDueDate" id="datepicker" placeholder="Due Date">
+            <input type="text" class="form-control" name="etxtDueDate" id="datepicker" placeholder="Enter new Due Date">
         </div>
     </div>
 
         <input type="hidden" name="method" value="go">
-        <input type="submit" value="go" style="margin-top:1em;"/>
+        <input role="button" class="btn btn-primary btn-lg btn-block" type="submit" value="Update Milestone" style="margin-top:1em;"/>
     </form>
 </div>
 </body>
