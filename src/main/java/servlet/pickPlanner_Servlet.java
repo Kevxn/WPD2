@@ -8,6 +8,7 @@ import db.H2Planner;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.sql.Date;
@@ -63,6 +64,15 @@ public class pickPlanner_Servlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        HttpSession session = request.getSession(false);
+
+        if (session == null || session.getAttribute("username") == ""){
+            response.sendRedirect("/login");
+        }
+        String currentUser = (String)session.getAttribute("username");
+        // this gets the currently logged in user
+
+
         List<Planner> plannerList = h2Planner.findPlanner();
         Map <String, Object> data = new HashMap<>();
         data.put("plannerList", plannerList);

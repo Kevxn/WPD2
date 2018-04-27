@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
         else{
             HttpSession session = req.getSession(true);
             session.setAttribute("username", username);
-            resp.sendRedirect("/createPlanner");
+            resp.sendRedirect("/pickPlanner");
         }
 
         System.out.println("User tried to login with " + username + " and " + password);
