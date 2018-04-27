@@ -5,16 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/servlet/LoginServlet.java" line="50" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da03f30d-6831-4fd0-aef2-32ba0cb6e7d2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/Planner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/H2Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/H2Planner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/createPlanner_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pp.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pp.mustache" afterDir="false" />
-    </list>
+    <list default="true" id="da03f30d-6831-4fd0-aef2-32ba0cb6e7d2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,15 +25,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
               <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogoutServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/LogoutServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -68,23 +50,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pickPlanner_Servlet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pickPlanner_Servlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
+            <state relative-caret-position="314">
               <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
               <folding>
                 <element signature="e#545#572#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pp.mustache" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/pp.mustache">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="64" column="49" lean-forward="true" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -111,6 +84,28 @@
                 <element signature="e#2058#2059#0" expanded="true" />
                 <element signature="e#2115#2116#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Milestone.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/model/Milestone.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#1038#1039#0" expanded="true" />
+                <element signature="e#1080#1081#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbtest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/db/dbtest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -275,22 +270,22 @@
               <item name="wpd2-coursework" type="b2602c69:ProjectViewProjectNode" />
               <item name="wpd2-coursework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wpd2-coursework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wpd2-coursework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wpd2-coursework" type="b2602c69:ProjectViewProjectNode" />
               <item name="wpd2-coursework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wpd2-coursework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wpd2-coursework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,7 +431,7 @@
       <workItem from="1524832028665" duration="771000" />
       <workItem from="1524832810559" duration="4749000" />
       <workItem from="1524856625351" duration="1805000" />
-      <workItem from="1524858941631" duration="1599000" />
+      <workItem from="1524858941631" duration="2251000" />
     </task>
     <servers />
   </component>
@@ -458,7 +453,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37776000" />
+    <option name="totallyTimeSpent" value="38428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1402" height="900" extended-state="0" />
@@ -474,11 +469,12 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49305555" visible="true" weight="0.6694915" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49305555" weight="0.6694915" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32952926" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28887305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28887305" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -486,7 +482,6 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4965278" weight="0.39882353" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3298611" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -615,25 +610,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/db/H2Milestone.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/model/Milestone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/db/jk.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/util/Password.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/db/dbtest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -789,6 +770,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+          <folding>
+            <element signature="e#545#572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/model/Planner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="711">
@@ -804,19 +802,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/homePage_Servlet.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/db/dbtest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+        <state relative-caret-position="390">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/pickPlanner_Servlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/model/Milestone.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
-            <element signature="e#545#572#0" expanded="true" />
+            <element signature="e#1038#1039#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
           </folding>
         </state>
       </provider>
