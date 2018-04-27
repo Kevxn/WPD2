@@ -9,8 +9,5 @@
         <module name="BasicServlet" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="BasicServlet" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>
