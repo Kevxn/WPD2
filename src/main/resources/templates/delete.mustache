@@ -1,16 +1,73 @@
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Shop Demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 <body>
-<h1>   Delete Milestone</h1>
-<form action="/deleteMilestone" method="POST">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/pickPlanner">Milestone Planner <i class="fa fa-home" style="color:white;"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-{{#milestoneList}}<input type="radio" name="msgId" value="{{id}}">
-    {{title}}
-    {{description}}
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log Out</button>
+        </form>
+    </div>
+</nav>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <br> <br>
+        <h1 class="display-4">Delete Milestone</h1>
+    </div>
+</div>
+<div class="container">
+
+
+
+<form action="/deleteMilestone" method="POST">
+    <div class="row">
+        {{#milestoneList}}
+    <div class ="col-md-4">
+        <div class="card card-body bg-light" style="margin-bottom: 1em">
+    <input type="radio" name="msgId" value="{{id}}">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+        </div>
+    </div>
 {{/milestoneList}}
+</div>
         <input type="hidden" name="method" value="delete">
         <input type="submit" value="Delete" style="margin-top:1em;"/>
-
 </form>
+    <!--<div class="row">-->
+        <!--{{#plannerList}}-->
+            <!--<div class="col-md-4">-->
+                <!--<div class="card card-body bg-light" style="margin-bottom: 1em;">-->
+                    <!--<h3>{{plannerName}}</h3>-->
+                    <!--{{#milestone}}-->
+                        <!--<div class="border border-primary">-->
+                            <!--<h4>{{title}}</h4>-->
+                            <!--<p>{{description}}</p>-->
+                        <!--</div>-->
+                        <!--<br>-->
+                    <!--{{/milestone}}-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--{{/plannerList}}-->
+    <!--</div>-->
+
+</div>
 
 <p><a href="/plannerHomepage">Home</a></p>
 </body>
