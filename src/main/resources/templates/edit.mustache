@@ -33,27 +33,88 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <br> <br>
-        <h1> class="display-4">Edit Milestone</h1>
+        <h1 class="display-4">Edit Milestone</h1>
     </div>
 </div>
 <div class="container">
 
+    <div class="row">
+    {{#milestoneList}}
+    <div class ="col-md-4">
+    <div class="card card-body bg-light" style="margin-bottom: 1em">
+    <h4 style="font-weight: normal;">ID:{{id}} {{title}}</h4>
+    <p>{{description}}</p>
+    </div>
+    </div>
+    {{/milestoneList}}
+    </div>
 
-    {{#milestoneList}}{{id}} {{title}} {{description}} {{/milestoneList}}
+    <!--{{#plannerList}}-->
+        <!--<div class="col-4">-->
+            <!--<div class="card card-body bg-light" style="margin-bottom: 1em">-->
+                <!--<h4 style="font-weight: normal;"><input type="radio" name="plannerId" value="{{id}}"> {{plannerName}}</h4>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--{{/plannerList}}-->
+<!--</div>-->
 
-    <form method="POST" action="/editMilestone">
-        <label for="id">Enter ID</label>
-        <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
-        <br>
 
-        <div class="row">
-            <div class="col">
-        <input type="text" id="etitle" name="etxtTitle" placeholder="eMilestone Title">
-            </div>
-            <div class="col">
-        <input type="text" id="edescription" name="etxtDescription" placeholder="eMilestone Description">
-            </div>
+
+
+
+<form method="POST" action="/editMilestone">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id">Milestone ID</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
         </div>
+        <div class="form-group col-md-6">
+            <label for="etitle">Title</label>
+            <input type="text" class="form-control" id="etitle" name="etxtTitle" placeholder="Edit Title">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="edescription">Description</label>
+            <input type="text" class="form-control" id="edescription" name="etxtDescription" placeholder="Edit Description">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Title</label>
+            <input type="text" class="" id="" name="" placeholder="">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!--<div class="col">-->
+        <!--<input type="text" id="edescription" name="etxtDescription" placeholder="eMilestone Description">-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+    <!--</div>-->
+
+    <!--<form>-->
+        <!--<div class="form-row">-->
+            <!--<div class="form-group col-md-6">-->
+                <!--<label for="inputEmail4">Email</label>-->
+                <!--<input type="email" class="form-control" id="inputEmail4" placeholder="Email">-->
+            <!--</div>-->
+            <!--<div class="form-group col-md-6">-->
+                <!--<label for="inputPassword4">Password</label>-->
+                <!--<input type="password" class="form-control" id="inputPassword4" placeholder="Password">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!---->
+    <!---->
+    <!---->
+
 
         <input type="hidden" name="method" value="go">
         <input type="submit" value="go" style="margin-top:1em;"/>

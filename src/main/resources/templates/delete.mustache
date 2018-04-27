@@ -39,15 +39,18 @@
         {{#milestoneList}}
     <div class ="col-md-4">
         <div class="card card-body bg-light" style="margin-bottom: 1em">
-    <input type="radio" name="msgId" value="{{id}}">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-        </div>
+            <h4 style="font-weight: normal;"><input type="radio" name="msgId" value="{{id}}"> {{title}}</h4>
     </div>
+        </div>
+
 {{/milestoneList}}
-</div>
+    </div>
         <input type="hidden" name="method" value="delete">
-        <input type="submit" value="Delete" style="margin-top:1em;"/>
+        <input type="submit" role="button" class="btn btn-primary btn-lg" value="Delete" style="margin-top:1em;"/>
+
+        <a role="button" type="button" class="btn btn-primary btn-lg" href = "/createMilestone">Back</a>
+
+
 </form>
     <!--<div class="row">-->
         <!--{{#plannerList}}-->
@@ -68,7 +71,5 @@
     <!--</div>-->
 
 </div>
-
-<p><a href="/plannerHomepage">Home</a></p>
 </body>
 </html>
