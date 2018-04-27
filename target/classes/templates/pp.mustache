@@ -48,8 +48,8 @@
 <!--<div class="headingTop">-->
    <!--<h1>CSS WORK NOW</h1>-->
 <!--</div>-->
-
-<div class="container">
+<div class="row">
+<div class="container col-md-1">
 
 
 
@@ -57,35 +57,40 @@
 
 
     <!--<svg viewBox="0 0 8 8"><use xlink:href="#home"></use></svg>-->
-    {{^plannerList}}
-        There are no Planners
-    {{/plannerList}}
 
-    <div class="row">
+    <!--<div class="row">-->
 
-        <div class col-4>
-            <nav class="navbar bg-light">
+        <!--<div class="col-4">-->
+            <nav class="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
 
                         <form method="POST" action="/pickPlanner">
                         <input type="hidden" name="method" value="pick">
-                            <button type="submit" value="pick"  class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0.5em;">Pick Planner</button>
+                            <button type="submit" value="pick"  class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0.5em;">Open Planner</button>
 
 
                     </li>
                     <li class="nav-item">
-                        <a href = "/createPlanner" role="button" class="btn btn-primary btn-lg">Enter</a>
+                        <a href = "/createPlanner" role="button" class="btn btn-primary btn-lg bn-block">Create Planner</a>
                     </li>
                     <li class="nav-item">
 
                     </li>
                 </ul>
             </nav>
-        </div>
 
-        {{#plannerList}}
-    <div class="col-4">
+</div>
+
+<div class="container col-md-8">
+
+
+        {{^plannerList}}
+            There are no Planners
+        {{/plannerList}}
+    <div class="row">
+    {{#plannerList}}
+    <div class="col-md-4">
         <div class="card card-body bg-light" style="margin-bottom: 1em">
             <h4 style="font-weight: normal;"><input type="radio" name="plannerId" value="{{id}}"> {{plannerName}}</h4>
         </div>
@@ -93,9 +98,8 @@
     {{/plannerList}}
 
     </div>
-
+    </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
