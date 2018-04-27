@@ -13,7 +13,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">
-        <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
     </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -49,19 +60,6 @@
     {{/milestoneList}}
     </div>
 
-    <!--{{#plannerList}}-->
-        <!--<div class="col-4">-->
-            <!--<div class="card card-body bg-light" style="margin-bottom: 1em">-->
-                <!--<h4 style="font-weight: normal;"><input type="radio" name="plannerId" value="{{id}}"> {{plannerName}}</h4>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--{{/plannerList}}-->
-<!--</div>-->
-
-
-
-
-
 <form method="POST" action="/editMilestone">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -69,69 +67,24 @@
             <input type="text" class="form-control" id="id" name="id" placeholder="enter id">
         </div>
         <div class="form-group col-md-6">
-            <label for="etitle">Title</label>
+            <label for="etitle">Edit Title</label>
             <input type="text" class="form-control" id="etitle" name="etxtTitle" placeholder="Edit Title">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="edescription">Description</label>
+            <label for="edescription">Edit Description</label>
             <input type="text" class="form-control" id="edescription" name="etxtDescription" placeholder="Edit Description">
         </div>
         <div class="form-group col-md-6">
-            <label for="">Title</label>
-            <input type="text" class="" id="" name="" placeholder="">
+            <label for="datepicker">Edit Due Date</label>
+            <input type="text" class="form-control" name="etxtDueDate" id="datepicker" placeholder="Due Date">
         </div>
     </div>
-
-
-
-
-
-
-
-
-    <!--<div class="col">-->
-        <!--<input type="text" id="edescription" name="etxtDescription" placeholder="eMilestone Description">-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-
-    <!--</div>-->
-
-    <!--<form>-->
-        <!--<div class="form-row">-->
-            <!--<div class="form-group col-md-6">-->
-                <!--<label for="inputEmail4">Email</label>-->
-                <!--<input type="email" class="form-control" id="inputEmail4" placeholder="Email">-->
-            <!--</div>-->
-            <!--<div class="form-group col-md-6">-->
-                <!--<label for="inputPassword4">Password</label>-->
-                <!--<input type="password" class="form-control" id="inputPassword4" placeholder="Password">-->
-            <!--</div>-->
-        <!--</div>-->
-    <!---->
-    <!---->
-    <!---->
-
 
         <input type="hidden" name="method" value="go">
         <input type="submit" value="go" style="margin-top:1em;"/>
     </form>
-
-
-
-
-
-
-
-
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 </body>
 </html>

@@ -55,8 +55,9 @@ public class editMilestone_Servlet extends BaseServlet{
      int id = Integer.parseInt(request.getParameter("id"));
         String eTitle = request.getParameter("etxtTitle");
        String eDescription = request.getParameter("etxtDescription");
+       String eDueDate = request.getParameter("etxtDueDate");
       //  Milestone m = h2Planner.getMilestone(id);
-        h2Milestone.updateMilestone(id, eTitle, eDescription);
+        h2Milestone.updateMilestone(id, eTitle, eDescription, eDueDate);
       //  m.setTitle(eTitle);
        // m.setDescription(eDescription);
         response.sendRedirect("/plannerHomepage");

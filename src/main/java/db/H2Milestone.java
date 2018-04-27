@@ -102,12 +102,13 @@ public class H2Milestone implements AutoCloseable{
 
 
 
-    public void updateMilestone(int id, String title, String description) {
-        final String UPDATE_MILESTONE_QUERY = "UPDATE milestone SET title = ?, description = ? WHERE id = ?";
+    public void updateMilestone(int id, String title, String description, String dueDate) {
+        final String UPDATE_MILESTONE_QUERY = "UPDATE milestone SET title = ?, description = ?, dueDate = ? WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
             ps.setString(1, title);
             ps.setString(2, description);
-            ps.setInt(3, id);//can change to have m.getdescription and so on
+            ps.setString(3, dueDate);
+            ps.setInt(4, id);//can change to have m.getdescription and so on
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
