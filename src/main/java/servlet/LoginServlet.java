@@ -3,6 +3,7 @@ package servlet;
 import db.H2User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.MustacheRenderer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

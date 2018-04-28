@@ -1,9 +1,9 @@
 package servlet;
 
 
-import app.model.Milestone;
 import app.model.Planner;
 import db.H2Planner;
+import util.MustacheRenderer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.sql.Date;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,7 @@ import java.util.Map;
 public class pickPlanner_Servlet extends BaseServlet {
     @SuppressWarnings("unused")
 
-    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/pp.mustache";
+    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/pickPlanner.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
   //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
   private static final String ID_PARAMETER = "plannerId";

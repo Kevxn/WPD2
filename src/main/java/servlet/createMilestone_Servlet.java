@@ -1,6 +1,5 @@
 package servlet;
 
-import app.model.Planner;
 import db.H2Planner;
 
 import javax.servlet.ServletException;
@@ -9,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import app.model.*;
 import db.*;
+import util.MustacheRenderer;
 
 public class createMilestone_Servlet extends HttpServlet{
 
-    private static final String DB_TEMPLATE = "src/main/resources/templates/milestone.mustache";
+    private static final String DB_TEMPLATE = "src/main/resources/templates/createMilestone.mustache";
     private final H2Planner h2Planner;
     private final H2Milestone h2Milestone;
     private final MustacheRenderer mustache;

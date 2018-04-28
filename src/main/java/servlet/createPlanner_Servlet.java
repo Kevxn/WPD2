@@ -1,8 +1,8 @@
 package servlet;
 
-import lombok.Data;
 import db.H2Planner;
 import app.model.*;
+import util.MustacheRenderer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,7 @@ import java.util.Map;
 //for new planner (index page)
 
 public class createPlanner_Servlet extends HttpServlet {
-    private static final String DB_TEMPLATE = "src/main/resources/templates/index.mustache";
+    private static final String DB_TEMPLATE = "src/main/resources/templates/createPlanner.mustache";
     private final H2Planner h2Planner;
     private final MustacheRenderer mustache;
 
@@ -30,11 +30,6 @@ public class createPlanner_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Planner> plannerList = h2Planner.findPlanner();
-
-        //printing out the contents of the planner for testing
-        for(Planner p : plannerList){
-            System.out.println(p.toString());
-        }
 
         Map <String, Object> data = new HashMap<>();
         data.put("plannerList", plannerList);

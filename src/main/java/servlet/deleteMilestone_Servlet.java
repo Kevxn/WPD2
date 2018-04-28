@@ -4,8 +4,7 @@ package servlet;
 import app.model.*;
 
 import db.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import util.MustacheRenderer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ import java.util.Map;
 public class deleteMilestone_Servlet extends BaseServlet {
 
 
-    private static final String USER_MESSAGES_TEMPLATE = "src/main/resources/templates/delete.mustache";
+    private static final String USER_MESSAGES_TEMPLATE = "src/main/resources/templates/deleteMilestone.mustache";
     private static final String MESSAGE_PARAMETER = "message";
     private static final String METHOD_PARAMETER = "method";
     private static final String ID_PARAMETER = "msgId";
@@ -38,24 +37,23 @@ public class deleteMilestone_Servlet extends BaseServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Milestone.findMilestone();
-        Map <String, Object> data = new HashMap<>();
-        if(milestoneList.size() == 0){
-            response.sendRedirect("errorH.html");
-        } else {
-            int pid = h2Planner.getId();
-            List<Milestone> temp = new ArrayList<>();
+        Map<String, Object> data = new HashMap<>();
+        int pid = h2Planner.getId();
+        List<Milestone> temp = new ArrayList<>();
 
-            for (Milestone m : milestoneList) {
-                if (m.getPlannerId() == pid) {
-                    temp.add(m);
-                }
-
+        for (Milestone m : milestoneList) {
+            if (m.getPlannerId() == pid) {
+                temp.add(m);
             }
-            data.put("milestoneList", temp);
-            String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
-            response.setContentType("text/html");
-            response.setStatus(200);
-            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+            if (temp.size() == 0) {
+                response.sendRedirect("errorH2.html");
+            } else {
+                data.put("milestoneList", temp);
+                String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
+                response.setContentType("text/html");
+                response.setStatus(200);
+                response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
+            }
         }
     }
 

@@ -66,10 +66,19 @@
             <div class="card card-body bg-light" style="margin-bottom: 1em;">
                         <h3>{{title}}</h3>
                         <p>{{description}}</p>
-                        <p>{{dueDate}}</p>
+                        <p>Due date:{{dueDate}}</p>
+                        <p>Completed date:{{compDate}}</p>
+
+                <form action="/plannerHomepage" method="POST">
+                    <input type="hidden" name="compId" value="{{id}}">
+                    <input type="submit" role="button" class="btn btn-primary btn-lg" value="completed" style="margin-top:1em;"/>
+                </form>
             </div>
         </div>
-                {{/milestone}}
+
+
+
+        {{/milestone}}
 
 
 

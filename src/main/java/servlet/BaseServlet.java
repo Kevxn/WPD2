@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
-import servlet.MustacheRenderer;
+import util.MustacheRenderer;
 
 
 public class BaseServlet extends HttpServlet {

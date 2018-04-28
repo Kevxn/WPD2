@@ -1,4 +1,4 @@
-package servlet;
+package util;
 
 
 import java.io.IOException;
@@ -11,7 +11,7 @@ import com.github.mustachejava.MustacheFactory;
 public class MustacheRenderer {
 
 
-    private static final String TEMPLATE_ROOT = "index.mustache";
+    private static final String TEMPLATE_ROOT = "createPlanner.mustache";
 
     private MustacheFactory mustacheFactory;
 

@@ -1,23 +1,28 @@
 package servlet;
 
 
-import app.model.*;
+import app.model.Milestone;
+import app.model.Planner;
 import db.H2Milestone;
 import db.H2Planner;
+import util.MustacheRenderer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.*;
+import java.text.*;
 //import java.nio.charset.Charset;
 
 
 public class homePage_Servlet extends servlet.BaseServlet {
     @SuppressWarnings("unused")
 
-    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/test.mustache";
+    private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/homepage.mustache";
     private static final long serialVersionUID = -7461821901454655091L;
     //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
     private final H2Planner h2Planner;
@@ -57,14 +62,14 @@ public class homePage_Servlet extends servlet.BaseServlet {
             response.sendRedirect("errorH2.html");
         }else{
         int pid = h2Planner.getId();
-        System.out.println(pid);
         Planner p = h2Planner.getPlanner(pid);
         List<Milestone> temp = new ArrayList<>();
         for (Milestone m : milestoneList) {
             if (m.getPlannerId() == p.getId()) {
                 temp.add(m);
+
+                }
             }
-        }
             p.addMilestones(temp);
             String html = mustache.render(MESSAGE_BOARD_TEMPLATE, p);
             response.setContentType("text/html");
@@ -72,6 +77,18 @@ public class homePage_Servlet extends servlet.BaseServlet {
             response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
         }
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = getInt(request, "compId");
+            Milestone m = h2Milestone.getMilestone(id);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            m.setCompDate((dateFormat.format(date)));
+            h2Milestone.completedMilestone(m);
+            response.sendRedirect("/plannerHomepage");
+
+    }
+
 
 
 }

@@ -40,7 +40,7 @@ public class Runner {
 
         handler.addServlet(new ServletHolder(new LoginServlet(h2User)), "/login/*");
 
-        handler.addServlet(new ServletHolder(new editMilestone_Servlet(h2Milestone)), "/editMilestone/*");
+        handler.addServlet(new ServletHolder(new editMilestone_Servlet(h2Milestone, h2Planner)), "/editMilestone/*");
         handler.addServlet(new ServletHolder(new createMilestone_Servlet(h2Planner, h2Milestone)), "/createMilestone/*");
         handler.addServlet(new ServletHolder(new deleteMilestone_Servlet(h2Planner, h2Milestone)), "/deleteMilestone");
         DefaultServlet ds = new DefaultServlet();

@@ -69,12 +69,13 @@ public class H2Milestone implements AutoCloseable{
 
     public List<Milestone> findMilestone() {
         int varID = 0;
-        final String LIST_MILESTONE_QUERY = "SELECT id, title, description, plannerId, dueDate FROM milestone";
+        final String LIST_MILESTONE_QUERY = "SELECT id, title, description, plannerId, dueDate, compDate FROM milestone";
         List<Milestone> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONE_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Milestone(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5)));
+                out.add(new Milestone(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
+                        rs.getString(6)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -115,6 +116,17 @@ public class H2Milestone implements AutoCloseable{
         }
     }
 
+
+    public void completedMilestone(Milestone m) {
+        final String UPDATE_MILESTONE_QUERY = "UPDATE milestone SET compDate = ? WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)) {
+            ps.setString(1, m.getCompDate());
+            ps.setInt(2,m.getId());
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
