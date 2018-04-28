@@ -8,6 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -45,31 +51,12 @@
 
 {{/milestoneList}}
     </div>
+
         <input type="hidden" name="method" value="delete">
-        <input type="submit" role="button" class="btn btn-primary btn-lg" value="Delete" style="margin-top:1em;"/>
-
-        <a role="button" type="button" class="btn btn-primary btn-lg" href = "/createMilestone">Back</a>
-
+        <input type="submit" role="button" class="btn btn-primary btn-lg bn-block col-md-12" value="Delete" style="margin-bottom:0.5em;"/>
+        <a role="button" onclick="goBack()" class="btn btn-primary btn-lg bn-block col-md-12" style="color:white;">Back</a>
 
 </form>
-    <!--<div class="row">-->
-        <!--{{#plannerList}}-->
-            <!--<div class="col-md-4">-->
-                <!--<div class="card card-body bg-light" style="margin-bottom: 1em;">-->
-                    <!--<h3>{{plannerName}}</h3>-->
-                    <!--{{#milestone}}-->
-                        <!--<div class="border border-primary">-->
-                            <!--<h4>{{title}}</h4>-->
-                            <!--<p>{{description}}</p>-->
-                        <!--</div>-->
-                        <!--<br>-->
-                    <!--{{/milestone}}-->
-                <!--</div>-->
-            <!--</div>-->
-
-        <!--{{/plannerList}}-->
-    <!--</div>-->
-
 </div>
 </body>
 </html>
