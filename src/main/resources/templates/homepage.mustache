@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -43,9 +44,9 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <form class="input-group mb-3">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="txtSearch">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="btnSearch">Search</button>
                         </div>
                     </form>
                 </li>
@@ -72,9 +73,9 @@
     {{/milestone}}
     <div class="row">
         {{#milestone}}
-        <div class="col-md-4">
+        <div class="col-md-4 milestoneCard">
             <div class="card card-body bg-light" style="margin-bottom: 1em;">
-                        <h3>{{title}}</h3>
+                        <h3 id="searchTitle">{{title}}</h3>
                         <p>{{description}}</p>
                         <p>Due date:{{dueDate}}</p>
                         <p>Completed date:{{compDate}}</p>
@@ -90,6 +91,16 @@
 
         {{/milestone}}
 
+        <script>
+            $(document).ready(function(){
+                $("#txtSearch").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $(".milestoneCard").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
 
     </div>
     </div>
