@@ -37,13 +37,15 @@
     </div>
 </div>
 <div class="container">
-
+    <form class="input-group mb-3">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="txtSearch">
+    </form>
 
 
 <form action="/deleteMilestone" method="POST">
     <div class="row">
         {{#milestoneList}}
-    <div class ="col-md-4">
+    <div class ="col-md-4 milestoneCard">
         <div class="card card-body bg-light" style="margin-bottom: 1em">
             <h4 style="font-weight: normal;"><input type="radio" name="msgId" value="{{id}}"> {{title}}</h4>
     </div>
@@ -59,4 +61,14 @@
 </form>
 </div>
 </body>
+<script>
+    $(document).ready(function(){
+        $("#txtSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".milestoneCard").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 </html>
