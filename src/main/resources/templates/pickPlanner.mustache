@@ -49,7 +49,7 @@
 
                         <form method="POST" action="/pickPlanner">
                         <input type="hidden" name="method" value="pick">
-                            <button type="submit" value="pick"  class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0.5em;">Open Planner</button>
+                            <button type="submit" value="pick" onclick="return checkButtonChosen()" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0.5em;">Open Planner</button>
 
 
                     </li>
@@ -57,7 +57,7 @@
                         <a href = "/createPlanner" role="button" class="btn btn-primary btn-lg bn-block">Create Planner</a>
                     </li>
                     <li class="nav-item">
-
+                        <label id="lblError"></label>
                     </li>
                 </ul>
             </nav>
@@ -81,6 +81,24 @@
 
     </div>
     </div>
+    <script>
+        function checkButtonChosen(){
+            if ($("input[type=radio]:checked").length > 0) {
+                $('lblError').hidden = true;
+                return true;
+            }
+            else{
+                $('#lblError').text('You must select a planner.');
+                return false;
+            }
+        }
+
+        $(document).ready(function() {
+            $('input[type=radio]').change(function() {
+                $('#lblError').hidden = true;
+            });
+        });
+    </script>
 </div>
 </body>
 </html>
