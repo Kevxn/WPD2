@@ -41,19 +41,21 @@ public class deleteMilestone_Servlet extends BaseServlet {
         int pid = h2Planner.getId();
         List<Milestone> temp = new ArrayList<>();
 
-        for (Milestone m : milestoneList) {
+        for (Milestone m: milestoneList){
             if (m.getPlannerId() == pid) {
                 temp.add(m);
             }
-            if (temp.size() == 0) {
-                response.sendRedirect("errorH2.html");
-            } else {
-                data.put("milestoneList", temp);
-                String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
-                response.setContentType("text/html");
-                response.setStatus(200);
-                response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
-            }
+        }
+
+        if (temp.size() == 0){
+            response.sendRedirect("errorH2.html");
+        }
+        else{
+            data.put("milestoneList", temp);
+            String html = mustache.render(USER_MESSAGES_TEMPLATE, data);
+            response.setContentType("text/html");
+            response.setStatus(200);
+            response.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
         }
     }
 
