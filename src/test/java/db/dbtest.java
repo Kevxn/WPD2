@@ -66,7 +66,7 @@ public class dbtest {
     }
 
     @Test
-    public void testReadMilestone3(){
+    public void testMilestoneDueDate(){
         db.addMilestone(new Milestone("three", "three description", 1, "08/07/1998"));
         List<Milestone> allMilestones = db.findMilestone();
         Milestone first = allMilestones.get(0);
