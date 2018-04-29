@@ -37,6 +37,7 @@ public class Runner {
         handler.addServlet(new ServletHolder(new pickPlanner_Servlet(h2Planner)), "/pickPlanner/*");
         handler.addServlet(new ServletHolder(new homePage_Servlet(h2Planner, h2Milestone)), "/plannerHomepage/*");
         handler.addServlet(new ServletHolder(new createPlanner_Servlet(h2Planner)), "/createPlanner/*");
+        handler.addServlet(new ServletHolder(new sharedPlanner_Servlet(h2Planner, h2Milestone)), "/shared");
 
         handler.addServlet(new ServletHolder(new LoginServlet(h2User)), "/login/*");
 
