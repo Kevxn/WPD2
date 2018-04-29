@@ -51,13 +51,13 @@ public class homePage_Servlet extends servlet.BaseServlet {
         List<Planner> plannerList = h2Planner.findPlanner();
         List<Milestone> milestoneList = h2Milestone.findMilestone();
         if(plannerList.size() == 0 || plannerList == null){
-            response.sendRedirect("errorH2.html");
+            response.sendRedirect("/errorH2.html");
         }else{
         int pid = h2Planner.getId();
         Planner p = h2Planner.getPlanner(pid);
 
         if (session.getAttribute("shareId") != null){
-            p.setShareId("Share this Planner: localhost:9000/shared?shareId=" + (String)session.getAttribute("shareId"));
+            p.setShareId("localhost:9000/shared?shareId=" + (String)session.getAttribute("shareId"));
         }
 
         List<Milestone> temp = new ArrayList<>();
