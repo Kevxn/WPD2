@@ -15,7 +15,7 @@ import app.model.*;
 import db.*;
 import util.MustacheRenderer;
 
-public class createMilestone_Servlet extends HttpServlet{
+public class createMilestone_Servlet extends BaseServlet{
 
     private static final String DB_TEMPLATE = "src/main/resources/templates/createMilestone.mustache";
     private final H2Planner h2Planner;
@@ -31,8 +31,6 @@ public class createMilestone_Servlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Milestone> milestoneList = h2Milestone.findMilestone();
-        //validation
-
         Map<String, Object> data = new HashMap<>();
         data.put("milestoneList", milestoneList);
         String html = mustache.render(DB_TEMPLATE, data);
@@ -49,12 +47,8 @@ public class createMilestone_Servlet extends HttpServlet{
         String description = request.getParameter("txtDescription");
         String dueDate = request.getParameter("txtDueDate");
         int plannerId = h2Planner.getId();
-
-
         Milestone milestone = new Milestone(title, description, plannerId, dueDate);
-
         h2Milestone.addMilestone(milestone);
-        //System.out.print(planner.toString());
         response.sendRedirect("/plannerHomepage");
     }
 }

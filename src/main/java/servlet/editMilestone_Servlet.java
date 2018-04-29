@@ -24,9 +24,6 @@ public class editMilestone_Servlet extends BaseServlet{
     private final H2Planner h2Planner;
     private final MustacheRenderer mustache;
 
-    private static final String ID_PARAMETER = "msgId";
-    private static final String METHOD_PARAMETER = "method";
-
 
     public editMilestone_Servlet( H2Milestone h2Milestone, H2Planner h2Planner) {
         mustache = new MustacheRenderer();

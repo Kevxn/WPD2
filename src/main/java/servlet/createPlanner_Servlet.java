@@ -18,7 +18,7 @@ import java.util.UUID;
 
 //for new planner (index page)
 
-public class createPlanner_Servlet extends HttpServlet {
+public class createPlanner_Servlet extends BaseServlet{
     private static final String DB_TEMPLATE = "src/main/resources/templates/createPlanner.mustache";
     private final H2Planner h2Planner;
     private final MustacheRenderer mustache;

@@ -134,7 +134,6 @@ public class H2Milestone implements AutoCloseable{
 
 
     public void delete(int id) {
-        System.out.println("delete");
         String ps = "DELETE FROM milestone WHERE id = ?";
         try (PreparedStatement p = connection.prepareStatement(ps)) {
             p.setLong(1, id);

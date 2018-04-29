@@ -32,18 +32,6 @@ public class BaseServlet extends HttpServlet {
         response.getOutputStream().write(output);
     }
 
-    protected void cache(HttpServletResponse response, int seconds) {
-        if (seconds > 0) {
-            response.setHeader("Pragma", "Public");
-            response.setHeader("Cache-Control", "public, no-transform, max-age=" + seconds);
-        }
-    }
-
-    void showView(HttpServletResponse response, String templateName, Object model) throws IOException {
-        String html = mustache.render(templateName, model);
-        issue(HTML_UTF_8, HttpServletResponse.SC_OK, html.getBytes(CHARSET_UTF8), response);
-    }
-
 
     int getInt(HttpServletRequest request, String param) {
         String value = request.getParameter(param);

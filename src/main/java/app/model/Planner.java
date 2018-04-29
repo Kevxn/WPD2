@@ -13,8 +13,6 @@ public class Planner {
     private String shareId;
 
 
-    private static int lastIdAllo = 0;
-
     public Planner(){
         this.shareId = "";
         this.id = 0 ;
@@ -84,14 +82,7 @@ public class Planner {
         return shareId;
     }
 
-    public void setPlannerName(String plannerName) {
-        this.plannerName = plannerName;
-    }
 
-    public void addMilestone(Milestone newMilestone){
-        this.milestone.add(newMilestone);
-
-    }
 
     public void addMilestones(List<Milestone> m){
         for (Milestone milestone : m){
@@ -100,9 +91,6 @@ public class Planner {
 
     }
 
-    public void removeMilestone(int index) {
-        this.milestone.remove(index);
-    }
 
     public ArrayList<Milestone> getMilestone() {
         return milestone;
@@ -112,13 +100,8 @@ public class Planner {
         this.milestone = milestone;
     }
 
-
     public String getcUser() {
         return cUser;
-    }
-
-    public void setcUser(String cUser) {
-        this.cUser = cUser;
     }
 
     public String toString() {

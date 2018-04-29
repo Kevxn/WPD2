@@ -7,7 +7,6 @@ import util.Password;
 
 import java.sql.*;
 
-/** IUserLogin via an H2 database */
 public class H2User extends H2Base {
     @SuppressWarnings("unused")
     private static final Logger LOG = LoggerFactory.getLogger(H2User.class);

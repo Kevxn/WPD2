@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class sharedPlanner_Servlet extends HttpServlet{
+public class sharedPlanner_Servlet extends BaseServlet{
 
     private static String MILESTONE_TEMPLATE = "src/main/resources/templates/shared.mustache";
     private static H2Planner h2Planner;
@@ -40,7 +40,8 @@ public class sharedPlanner_Servlet extends HttpServlet{
             String shareId = (String)session.getAttribute("shareId");
 
             int id = h2Planner.shareIdToId(shareId);
-            List<Planner> allPlanners = h2Planner.findPlanner();
+
+
             List<Milestone> allMilestones = h2Milestone.findMilestone();
             List<Milestone> temp = new ArrayList<Milestone>();
             Planner p = h2Planner.getPlanner(id);

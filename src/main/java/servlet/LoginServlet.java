@@ -16,14 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class LoginServlet extends HttpServlet {
-    // this servlet responds to POST requests
+public class LoginServlet extends BaseServlet {
     @SuppressWarnings("unused")
     private static final String DB_TEMPLATE = "src/main/resources/templates/login.mustache";
     private final MustacheRenderer mustache;
     private H2User h2User;
 
-    static final Logger LOG = LoggerFactory.getLogger(LoginServlet.class);
     private static final long serialVersionUID = -7461821901454655091L;
     public LoginServlet(H2User h2User) {
         this.h2User = h2User;
@@ -37,7 +35,6 @@ public class LoginServlet extends HttpServlet {
         Map<String, String> params = new HashMap<>();
         params.put("username", user);
 
-//        response.sendRedirect("/createPlanner");
 
         String data = "hello";
         String html = mustache.render(DB_TEMPLATE, data);
@@ -68,7 +65,7 @@ public class LoginServlet extends HttpServlet {
             resp.setContentType("text/html");
             resp.setStatus(200);
             resp.getOutputStream().write(html.getBytes(Charset.forName("utf-8")));
-//            resp.sendRedirect("/login");
+
         }
         else{
             HttpSession session = req.getSession(true);
@@ -76,7 +73,7 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("/pickPlanner");
         }
 
-        System.out.println("User tried to login with " + username + " and " + password);
+
     }
 
     private boolean checkUserAndPass(String userName, String password) {

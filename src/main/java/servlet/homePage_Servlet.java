@@ -17,15 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
 import java.text.*;
-//import java.nio.charset.Charset;
 
 
 public class homePage_Servlet extends servlet.BaseServlet {
     @SuppressWarnings("unused")
 
     private static final String MESSAGE_BOARD_TEMPLATE = "src/main/resources/templates/homepage.mustache";
-    private static final long serialVersionUID = -7461821901454655091L;
-    //  public static final Charset HTML_UTF_8 = Charset.forName("UTF-8");
     private final H2Planner h2Planner;
     private final H2Milestone h2Milestone;
 
@@ -40,19 +37,7 @@ public class homePage_Servlet extends servlet.BaseServlet {
     MustacheRenderer mustache = new MustacheRenderer();
 
 
-    protected void showView(HttpServletResponse response, String templateName, Object model)
-            throws IOException {
 
-        String html = mustache.render(templateName, model);
-        issue("text/html", HttpServletResponse.SC_OK, html.getBytes(CHARSET_UTF8), response);
-    }
-
-    protected void issue(String mimeType, int returnCode, byte[] output, HttpServletResponse response)
-            throws IOException {
-        response.setContentType(mimeType);
-        response.setStatus(returnCode);
-        response.getOutputStream().write(output);
-    }
 
 
     @Override
@@ -102,7 +87,6 @@ public class homePage_Servlet extends servlet.BaseServlet {
 
        if (request.getParameter("btnShare") != null){
 
-               List<Planner> plannerList = h2Planner.findPlanner();
                List<Milestone> milestoneList = h2Milestone.findMilestone();
                int plannerId = h2Planner.getId();
                Planner p = h2Planner.getPlanner(plannerId);
@@ -110,7 +94,6 @@ public class homePage_Servlet extends servlet.BaseServlet {
                for (Milestone m : milestoneList){
                    if (m.getPlannerId() == p.getId()){
                        shareableId = h2Planner.findPlannerShareId(m.getPlannerId());
-                       System.out.println(h2Planner.findPlannerShareId(m.getPlannerId()));
                        session.setAttribute("shareId", shareableId);
                        response.sendRedirect("/plannerHomepage");
                    }

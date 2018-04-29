@@ -31,7 +31,7 @@ public class Milestone implements Serializable {
 
     }
 
-//^ above is used with db
+
 
     public Milestone(String title, String description, int plannerId, String dueDate){
         this.id = ++lastIdAllo;
@@ -50,8 +50,6 @@ public class Milestone implements Serializable {
         this.compDate = compDate;
     }
 
-
-        //add new constructor here
 
     public Milestone() {
 
@@ -86,8 +84,6 @@ public class Milestone implements Serializable {
         }
 
         public String getDueDate () { return dueDate; }
-
-        public void setDueDate (String dueDate) {this.dueDate = dueDate; }
 
     public String getCompDate() {
         return compDate;
