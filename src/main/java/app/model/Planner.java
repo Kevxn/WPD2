@@ -10,12 +10,14 @@ public class Planner {
     private String plannerName;
     private ArrayList<Milestone> milestone;
     private String cUser;
+    private String shareId;
 
 
     private static int lastIdAllo = 0;
 
     public Planner(){
-       this.id = 0 ;
+        this.shareId = "";
+        this.id = 0 ;
         this.plannerName = "";
         this.milestone = new ArrayList<>();
     }
@@ -23,6 +25,7 @@ public class Planner {
     public Planner(String plannerName){
         this.plannerName = plannerName;
         this.milestone = new ArrayList<>();
+        this.shareId = shareId;
     }
 
     public Planner(int id, String plannerName){
@@ -32,11 +35,12 @@ public class Planner {
     }
 
 
-    public Planner(String plannerName, String cUser){
+    public Planner(String plannerName, String cUser, String shareId){
         this.id = id;
         this.plannerName = plannerName;
         this.milestone = new ArrayList<>();
         this.cUser = cUser;
+        this.shareId = shareId;
     }
 
     public Planner(int id, String plannerName, String cUser){
@@ -47,7 +51,20 @@ public class Planner {
 
     }
 
+    public Planner(int id, String plannerName, String cUser, String shareId){
+        this.id = id;
+        this.plannerName = plannerName;
+        this.cUser = cUser;
+        this.shareId = shareId;
+    }
 
+    public Planner(int id, String plannerName, ArrayList<Milestone> milestones, String cUser, String shareId){
+        this.id = id;
+        this.plannerName = plannerName;
+        this.cUser = cUser;
+        this.milestone = milestones;
+        this.shareId = shareId;
+    }
 
     public int getId() {
         return id;
@@ -57,8 +74,14 @@ public class Planner {
         this.id = id;
     }
 
+    public void setShareId(String shareId){this.shareId = shareId;}
+
     public String getPlannerName() {
         return plannerName;
+    }
+
+    public String getShareId(){
+        return shareId;
     }
 
     public void setPlannerName(String plannerName) {
@@ -101,6 +124,5 @@ public class Planner {
     public String toString() {
         return "id:" + id + "name" + plannerName + "cUser" + cUser;
     }
-
 
 }

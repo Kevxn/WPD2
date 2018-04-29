@@ -55,10 +55,11 @@ public class H2Planner implements AutoCloseable {
     }
 
     public void addPlanner(Planner planner) {
-        final String ADD_PLANNER_QUERY = "INSERT INTO planner (plannerName, cUser) VALUES (?, ?)";
+        final String ADD_PLANNER_QUERY = "INSERT INTO planner (plannerName, cUser, shareId) VALUES (?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_PLANNER_QUERY)) {
             ps.setString(1, planner.getPlannerName ());
             ps.setString(2, planner.getcUser());
+            ps.setString(3, planner.getShareId());
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,12 +67,42 @@ public class H2Planner implements AutoCloseable {
     }
 
     public List<Planner> findPlanner() {
-        final String LIST_PLANNER_QUERY = "SELECT id, plannerName, cUser FROM planner";
+        final String LIST_PLANNER_QUERY = "SELECT id, plannerName, cUser, shareId FROM planner";
         List<Planner> out = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(LIST_PLANNER_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Planner(rs.getInt(1), rs.getString(2), rs.getString(3)));
+                out.add(new Planner(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return out;
+    }
+
+    public int shareIdToId(String shareId){
+        final String FIND_SHARE_QUERY = "SELECT id FROM planner WHERE shareId = ?";
+        int out = 0;
+        try (PreparedStatement ps = connection.prepareStatement(FIND_SHARE_QUERY)) {
+            ps.setString(1, shareId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                out = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return out;
+    }
+
+    public String findPlannerShareId(int id){
+        final String FIND_SHARE_QUERY = "SELECT shareId FROM planner WHERE id = ?";
+        String out = "";
+        try (PreparedStatement ps = connection.prepareStatement(FIND_SHARE_QUERY)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                out = rs.getString(1);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -80,9 +111,23 @@ public class H2Planner implements AutoCloseable {
     }
 
 
-
     public Planner getPlanner(int vid) {
-        final String GET_MILESTONE_QUERY = "SELECT id, plannerName FROM planner WHERE id = ?";
+        final String GET_MILESTONE_QUERY = "SELECT id, plannerName, shareId FROM planner WHERE id = ?";
+        Planner p = new Planner();
+        try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE_QUERY)) {
+            ps.setInt(1, vid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                p = rs2Planner(rs);
+            }
+            return p;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Planner getShareId(int vid) {
+        final String GET_MILESTONE_QUERY = "SELECT shareId FROM planner WHERE id = ?";
         Planner p = new Planner();
         try (PreparedStatement ps = connection.prepareStatement(GET_MILESTONE_QUERY)) {
             ps.setInt(1, vid);

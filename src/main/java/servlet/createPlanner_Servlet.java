@@ -14,6 +14,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 //for new planner (index page)
 
@@ -51,7 +52,8 @@ public class createPlanner_Servlet extends HttpServlet {
         String currentUser = (String)session.getAttribute("username");
 
         String plannerName = request.getParameter("plannerName");
-        Planner planner = new Planner(plannerName, currentUser);
+        String guid = UUID.randomUUID().toString();
+        Planner planner = new Planner(plannerName, currentUser, guid);
 
         h2Planner.addPlanner(planner);
         response.sendRedirect("/pickPlanner");

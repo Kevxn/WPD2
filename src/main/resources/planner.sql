@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS planner (
   plannerName VARCHAR(255),
   milestones VARCHAR (255),
   cUser VARCHAR(255),
+  shareid VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS milestone (
