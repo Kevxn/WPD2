@@ -6,8 +6,8 @@
     <packaging>jar</packaging>
     <version>1.0</version>
 
-    <groupId>wpd2.lab1</groupId>
-    <artifactId>BasicServlet</artifactId>
+    <groupId>group 15</groupId>
+    <artifactId>wpd2-coursework</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,7 +66,7 @@
 
 
     <build>
-        <finalName>jetty-store-demo</finalName>
+        <finalName>coursework 2</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
