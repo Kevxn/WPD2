@@ -37,15 +37,15 @@ public class dbtest {
 
     }
 
-//    @Test
-//    public void testAdd() {
-//     db.addMilestone(new Milestone("one", "one", 1));
-//     db.addMilestone(new Milestone("two", "two", 2));
-//     db.addMilestone(new Milestone("three", "three", 3));
-//     db.addMilestone(new Milestone("four", "four", 4));
-//     db.addMilestone(new Milestone("four", "four", 5));
-//        List<Milestone> out = db.findMilestone();
-//        assertEquals(5, out.size());
-//    }
-//
+    @Test
+    public void testAdd() {
+     db.addMilestone(new Milestone("one", "one", 1, "01/01/2018"));
+     db.addMilestone(new Milestone("two", "two", 2, "01/01/2018"));
+     db.addMilestone(new Milestone("three", "three", 3, "01/01/2018"));
+     db.addMilestone(new Milestone("four", "four", 4, "01/01/2018"));
+     db.addMilestone(new Milestone("five", "five", 5, "01/01/2018"));
+        List<Milestone> out = db.findMilestone();
+        assertEquals(5, out.size());
+    }
+
 }
